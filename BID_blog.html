@@ -31,31 +31,39 @@
       <tr>
         <td style="padding:80px;width:100%;vertical-align:middle; font-size: 1.5em;">
           <!-- Heading -->
-          <h2>Introduction</h2>
+          <heading style="display:block; font-size:2em; margin-bottom: 10px;">Introduction</heading>
           <!-- Paragraph -->
           <p style="text-align:left; font-size: 0.80em;">
-            The past year has seen a tremendous increase in efforts to scale up robotic data collection with projects like Open-X Embodiment, Droid, UMI. Such large datasets of expert demonstrations, coupled with strong behavior cloning algorithms, can help robots learn complex skills, from folding shirts to cooking shrimp. One might ask: what are the challenges that uniquely reveal themselves when robots learn from such large datasets?
+            The past year has seen a tremendous increase in efforts to scale up robotic data collection with projects like OXE, Droid, UMI, etc. Such large datasets of expert demonstrations, coupled with strong behavior cloning algorithms, can help robots learn complex skills, from folding shirts to cooking shrimp. Large datasets generally encompass a diversity of strategies for every task aimed towards teaching a diversity of skills. They contain demonstrations from a variety of experts with different preferences and proficiency levels—for example, demonstrations from left-handed experts versus right-handed ones, demonstrators that are more adept at a task than others. All of these present themselves as unlabelled latent variables in the data. 
           </p>
           <p style="text-align:left; font-size: 0.80em;">
-            Large robotic datasets generally encompass a diversity of strategies for every task. They contain demonstrations from a variety of experts with different preferences and proficiency levels—for example, demonstrations from left-handed experts versus right-handed ones, demonstrators that are more adept at a task than others. All of these present themselves as unlabelled latent variables in the data. Once trained on these datasets, multimodal policies (like diffusion policies, behavior transformers, etc.) will capture a large number of strategies.
+            Learning policies from such datasets is one aspect of the problem but not the only one. Recent generative behavioral cloning policies like diffusion policies can capture multiple behavior modes. However, execution of strategies is another aspect. The natural framework in which we can analyse this is test-time decoding from these policies. 
           </p>
           <p style="text-align:left; font-size: 0.80em;">
-            The first challenge arises in choosing the right strategy to start with, when the robot has already learned multiple strategies. In particular, we would want the robot to prefer the more optimal strategies it has learned and execute them instead of having an almost uniform distribution over all strategies. This is non-trivial; large datasets do not have explicit labels for how good each demonstration is and, yet, we want the model to be biased towards the "better strategies". 
+            Having learnt a diversity of strategies, some of which may be sub-optimal, one of the challenges is in choosing the right strategy. In particular, we would want the robot to prefer the more optimal strategies it has learned and execute them instead of having an almost uniform distribution over all strategies. This is non-trivial given how optimal a strategy is an unlabelled latent. 
           </p>
           <p style="text-align:left; font-size: 0.80em;">
-            The second challenge is in execution of any strategy. We would hope that, for any one rollout, the robot can consistently execute any one of these strategies consistently. In other words, once a strategy has been sampled at a time step, the robot needs to commit to that strategy and execute in a coherent manner; it must not hop from one strategy to another like switching from being left-handed to right-handed. This requires learning temporal dependencies, identifying latent variables hiding in the demonstrated trajectories and sampling actions in a manner that the latent variables remain consistent. While one might consider just extending the context conditioned on which the actions are generated (longer context might help remain consistent with past strategies - more on this later), the problem is that models often learn spurious correlations from the long contexts which ends up hurting performance even more. 
+            Another challenge is in execution of a given strategy. We would hope that, for any one rollout, the robot can consistently execute any one of these strategies consistently. In other words, once a strategy has been sampled at a time step, the robot needs to commit to that strategy and execute in a coherent manner; it must not hop from one strategy to another like switching from being left-handed to right-handed. This requires learning temporal dependencies, identifying latent variables hiding in the demonstrated trajectories and sampling actions in a manner that the latent variables remain consistent. While one might consider just extending the context conditioned on which the actions are generated (longer context might help remain consistent with past strategies - more on this later), the problem is that models often learn spurious correlations from the long contexts which ends up hurting performance even more. 
           </p>
           <figure style="text-align:center;">
             <img src="images/BIDBlog/PushT.png" alt="Trajectories in Push-T task" style="max-width:60%;">
             <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Figure 1: Trajectories in the Push-T task.</figcaption>
           </figure>
           <p style="text-align:left; font-size: 0.80em;">
-            Here is an illustration—consider the Push-T task where the agent (the blue circle) needs to push the grey T-shaped block to cover the green-colored target. There are multiple routes that the agent can take to get to the tail of the block and start pushing it. We want an agent to be able to take any one of these two routes consistently, like the one in the left figure. But the right figure shows an agent that fails to commit - it often starts taking one route and then switches to the other, leading to jittery trajectories. 
+            Here is an illustration—-consider the Push-T task where the agent (the blue circle) needs to push the grey T-shaped block to cover the green-colored target. There are multiple routes that the agent can take to get to the tail of the block and start pushing it. We want an agent to be able to take any one of these two routes consistently, like the one in the left figure. But the right figure shows an agent that fails to commit - it often starts taking one route and then switches to the other, leading to jittery trajectories. 
           </p>
           <p style="text-align:left; font-size: 0.80em;">
             Therefore, we have a two-pronged challenge. Firstly, we need our robot to choose the more optimal strategies during sampling. Secondly, we need the robot to consistently execute whichever strategy it selected. 
           </p>
-          <h2>Action Chunking</h2>
+          <heading style="display:block; font-size:2em; margin-bottom: 10px;">Long Contexts</heading>
+            <p style="text-align:left; font-size: 0.80em;">
+                One possible way to solve both of these challenges could be to use very long contexts. Conditioned on long contexts, the policy, in theory, should be sampling from the same strategy in a temporally coherent manner. However, in practice, large context lengths end up hurting performance as models often learn spurious correlations. We illustrate this in the Push-T task. We will return to this discussion on context length later. 
+            </p>
+            <figure style="text-align:center;">
+                <img src="images/BIDBlog/longcontext.png" alt="Comparison of context length vs action horizon of diffusion policy on push-t task" style="max-width:40%;">
+                <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Figure: Effect of prediction horizon \(h\) and context length \(c\) on diffusion policies in the Push-T task. The baseline is set at \(h = 2\) and \(c = 2\).</figcaption>
+            </figure>          
+          <heading style="display:block; font-size:2em; margin-bottom: 10px;">Action Chunking</heading>
             <!-- Paragraph -->
             <p style="text-align:left; font-size: 0.80em;">
                 This is not a novel goal by any means. In fact, over the past year, researchers have discovered interesting techniques to achieve some of these goals. One interesting practice has been something called "action chunking". Under this paradigm, at a state, our agent does not only generate the next action. Instead, it models the join distribution of the next \( p \) actions: $$\pi(a_{t}, a_{t+1}, \ldots, a_{t+p} | s_{t}, s_{t-1},\ldots,s_{t-c}).$$
@@ -69,7 +77,7 @@
             <p style="text-align:left; font-size: 0.80em;">
                 We first follow this trail. 
             </p>
-            <h2>Analysis of Action Chunking</h2>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">Analysis of Action Chunking</heading>
             <p style="text-align:left; font-size: 0.80em;">
                 Our first goal in our paper is to understand the strengths and weaknesses of action chunking. We will compare the performance of a policy with shorter action horizon and the performance of one with a larger action horizon. Suppose an agent executes action chunks of length \(h\) and suppose this action chunk is generated conditioned on the observations of the last \(c\) states. Then, we will refer to this agent as a \((c,h)\)-model. In contrast, the expert demonstrator clearly only executes one action at a time, so their action chunk is of length 1 but the action is assumed to be dependent on, at most, the last \(k\) observations. We would like to compare between a \((c, h)\)-model and a \((c, h+d)\)-model (i.e., an agent with larger action chunks) -- in particular, we want to determine which model can imitate the expert distribution better. Here is an illustration for when these two policies' action chunks are aligned:
             </p>
@@ -124,7 +132,7 @@
             <p style="text-align:left; font-size: 0.80em;">
                 One way forward from here could be to always select the length of action chunks on the basis of how stochastic the environment is and the length of temporal dependencies in demonstrations. However, both of these are largely intractable. One could choose action chunking in dynamic environments only but it’s certainly possible that in many of the timesteps, there is no noise in which case we would want the temporal consistency action chunking brings whereas in other timesteps, where we encounter noise, we would want higher reactivity.
             </p>
-            <h2>Bidirectional Decoding</h2>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">Bidirectional Decoding</heading>
             <p style="text-align:left; font-size: 0.80em;">
                 <!-- Our approach to solving this problem was to think about increasing temporal consistency within closed-loop action chunking. In other words, we maximize reactivity by using closed-loop operations and \textit{then} think about how to increase temporal consistency.  -->
                 Our approach to solving this problem was to think about increasing temporal consistency within closed-loop action chunking. In other words, we maximize reactivity by using closed-loop operations and <i>then</i> increase temporal consistency through resampling methods. Apart from the fact that 
@@ -157,7 +165,7 @@
                 <!-- where $\mathcal{A}$ is the set of sampled action chunks, $\mathcal{L}_B$ and $\mathcal{L}_F$ are the two criteria  -->
                 where \(\mathcal{A}\) is the set of sampled action chunks, \(\mathcal{L}_B\) and \(\mathcal{L}_F\) are the two criteria.
             </p>
-            <h2>Experiments</h2>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">Experiments</heading>
             <p style="text-align:left; font-size: 0.80em;">
                 <!-- We go over some of the experiments that we conducted to test BID. We want to \textbf{(1) validate our theory i.e., test whether closed-loop operations are truly better in stochastic environments (2) test whether BID outperforms vanilla closed-loop operations in both static and noisy environments. } -->
                 We go over some of the experiments that we conducted to test BID. We want to <b>(1) validate our theory i.e., test whether closed-loop operations are truly better in stochastic environments (2) test whether BID outperforms other action decoding methods in both static and noisy environments. </b>
@@ -190,7 +198,7 @@
                 <img src="images/BIDBlog/realworldresults.png" alt="Real World Results of Diffusion Policy" style="max-width:70%;">
                 <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Figure 5 (left): Success rate of object delivery. Figure 5 (right): Success rate of cup replacement in the dynamic setting.</figcaption>
             </figure>
-            <h2>Discussion on Context Length</h2>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">Discussion on Context Length</heading>
             <p style="text-align:left; font-size: 0.80em;">
                 I want to stress that the theoretical analysis relies on the assumption that the context length is small compared to the expert's memory horizon. In practice, context length in robotics is small. For example, diffusion policies use context length 2 whereas VQ-BeT use 5.
                 Part of the reason for this is that, with insufficient data, long-context models often learn spurious correlations as opposed to the true temporal dependencies. I believe that as robotic data scales up, we can, more comfortably, extend context length and that would be beneficial. This <i>extremely</i> intuitive result has an <i>extremely</i> intuitive proof: <br>
@@ -207,7 +215,7 @@
                 Eitherways, assuming we can learn from long contexts some time into the future, in that realm, it is possible that action chunking itself would not be necessary. The optimal learner, after all, is still a \((k, 1)\)-policy. However, in that realm, contrastive sampling should still be a powerful method in improving the quality of strategies executed. Furthermore, our analysis assumed that all the important information is in 
                 the states visited in the past. It is important to question whether models need to also condition on past actions and what kind of consistency might come from that. Action chunking, afterall, does allow the model to condition actions on past actions within the chunk. 
             </p>
-            <h2>References</h2>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">References</heading>
             <ol style="text-align:left; font-size: 0.80em;">
                 <li>Cheng Chi, Siyuan Feng, Yilun Du, Zhenjia Xu, Eric Cousineau, Benjamin Burchfiel, and Shuran Song. Diffusion Policy: Visuomotor Policy Learning via Action Diffusion. In <i>Robotics: Science and Systems XIX</i>. Robotics: Science and Systems Foundation, July 2023.</li>
                 <li>Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, and Shuran Song. Universal manipulation interface: In-the-wild robot teaching without in-the-wild robots. <i>arXiv preprint arXiv:2402.10329</i>, 2024.</li>
