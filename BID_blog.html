@@ -165,7 +165,7 @@
                 <!-- where $\mathcal{A}$ is the set of sampled action chunks, $\mathcal{L}_B$ and $\mathcal{L}_F$ are the two criteria  -->
                 where \(\mathcal{A}\) is the set of sampled action chunks, \(\mathcal{L}_B\) and \(\mathcal{L}_F\) are the two criteria.
             </p>
-            <p>
+            <p style="text-align:left; font-size: 0.80em;">
                 This final form of our sampling method allows us to see another reason why <i>both</i> the criteria are important. Suppose, we used only backward coherence. If we sample a sufficiently large number of action chunks, it is possible that we may sample a chunk that 
                 is very close to the previous timestep's chunk but has low probability, because it is not sufficiently reactive to the current observation. As such, even though it is coherent, executing this chunk is not optimal. Forward contrast corrects for this by ensuring that the sampled chunk is not only coherent but also close to the optimal chunk in the sense that 
                 its probability of being sampled by the optimal policy is high.
