@@ -163,12 +163,12 @@
                 <!-- We cast the problem of closed-loop action chunking as searching for the optimal action among a batch of plans sampled at each time step, -->
                 We cast the problem of closed-loop action chunking as searching for the optimal action among a batch of plans sampled at each time step, $$a^* = \arg\min_{a \in \mathcal{A}} \mathcal{L}_B(a) + \mathcal{L}_F(a),$$ 
                 <!-- where $\mathcal{A}$ is the set of sampled action chunks, $\mathcal{L}_B$ and $\mathcal{L}_F$ are the two criteria  -->
-                where \(\mathcal{A}\) is the set of sampled action chunks, \(\mathcal{L}_B\) and \(\mathcal{L}_F\) are the two criteria.
-            </p>
+                where \(\mathcal{A}\) is the set of sampled action chunks, \(\mathcal{L}_B\) and \(\mathcal{L}_F\) are the two criteria. 
+            </p>    
             <p style="text-align:left; font-size: 0.80em;">
                 This final form of our sampling method allows us to see another reason why <i>both</i> the criteria are important. Suppose, we used only backward coherence. If we sample a sufficiently large number of action chunks, it is possible that we may sample a chunk that 
                 is very close to the previous timestep's chunk but has low probability, because it is not sufficiently reactive to the current observation. As such, even though it is coherent, executing this chunk is not optimal. Forward contrast corrects for this by ensuring that the sampled chunk is not only coherent but also close to the optimal chunk in the sense that 
-                its probability of being sampled by the optimal policy is high.
+                its probability of being sampled by the optimal policy is high. While the base algorithm just takes the argmin over both criteria, one can use more clever techniques from constrained optimization (like double descent) for a better balance of both criteria. 
             </p>
             <heading style="display:block; font-size:2em; margin-bottom: 10px;">Experiments</heading>
             <p style="text-align:left; font-size: 0.80em;">
