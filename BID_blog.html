@@ -80,7 +80,7 @@
             </p>
             <figure style="text-align:center;">
                 <img src="images/BIDBlog/horizon.pdf" alt="Shorter action horizon policy vs longer action horizon policy" style="max-width:50%;">
-                <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Figure 2: The two policies we are comparing. Gray shades are observed context; darker indicates higher importance. Hatched areas denote executed predictions. \( \pi_{h+d}\) can condition on more past states but observes less recent states compared to \( \pi_{h}\).</figcaption>
+                <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Figure 2: Illustration of \((k, 1)\)-expert, \((c, h)\)-learner, and \((c, h+d)\)-learner. Shaded regions represent observed history; darker indicate greater influence on current decision.</figcaption>
             </figure>
             <p style="text-align:left; font-size: 0.80em;">
                 Note that the larger action chunk model cannot observe more of the recent states which the smaller action chunk model can. On the other hand, the larger action chunk model can condition on some more past states that precede all the context that the shorter action chunk model can condition on.  Our analysis starts off with asking the following question: how important is a state that a policy has observed and how important is a state that was not observed? 
