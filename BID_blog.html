@@ -98,7 +98,7 @@
                 More formally, consider a policy that has not observed (i.e. cannot condition on) a state \(s_t\) denoted by \(\pi\). After inferring the state to be \(\hat{s}_t\), we write this policy as \( \pi(\hat{s}_t)\). Then, $$\mathcal{L}(\pi(\hat{s}_{t} \neq s_{t}), \pi^*) \leq \epsilon_{\{s_t\}}.$$
                 <br> We will denote the advantage that \(\pi_h\) gains from the observed recent states by \(\alpha_f\) and the inference disadvantage it incurs from the earlier unobserved states by \(\epsilon_b\), whereas \(\pi_{h+d}\) conversely gains \(\alpha_b\) but incurs \(\epsilon_f\). In the paper, we proved the following which intuition suggests should hold true:<br>
             </p>
-            <div style="background-color: #e7f3fe; border-left: 4px solid #2196F3; padding: 10px; margin-bottom: 1em;">
+            <div style="background-color: #d1d0d0; border-left: 4px solid #000000; padding: 10px; margin-bottom: 1em;">
                 <p style="text-align:left; font-size: 0.80em; line-height: 1.5; margin-bottom: 1em;">
                     <b>Proposition 8:</b> 
                     In all environments, \(\alpha_f \leq \epsilon_f, \alpha_b \leq \epsilon_b\). 
@@ -123,7 +123,7 @@
                 Let \(C := \mathcal{P}^+ \cup \mathcal{S}^+\), \(G := \{a_t, z_{t-k:t}\} \cup \mathcal{P}^- \cup \mathcal{S}^-\). Then, we can bound the expected loss of the \((c, h+d)\)-policy and the \((c, h)\)-policy as: 
                 $$\alpha_{f} - \epsilon_{b}(1 - P_b^{2d}) \leq \min_{\pi_{h+d}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h+d}, \pi^*) | C \right] - \min_{\pi_{h}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h}, \pi^*) | C \right] \leq - \alpha_{b} + \epsilon_{f}(1 - P_f^{2d})$$
             </p>  -->
-            <div style="background-color: #e7f3fe; border-left: 4px solid #2196F3; padding: 10px; margin-bottom: 1em;">
+            <div style="background-color: #d1d0d0; border-left: 4px solid #000000; padding: 10px; margin-bottom: 1em;">
                 <p style="text-align:left; font-size: 0.80em; line-height: 1.5; margin-bottom: 1em;">
                     <b>Proposition 1 (Consistency-Reactivity Inequalities):</b> 
                     Let \(\mathcal{L}\) be a non-linear convex function measuring the prediction error with respect to demonstrations. Let \(\mathcal{S}^+ \subset \{s_{t-k:t}\}\) be the states both the \((c, h)\) and the \((c, h+d)\) policies observe and let \(\mathcal{S}^- := \{s_{t-k:t}\}\setminus\mathcal{S}^+\). Similarly, let \(\mathcal{P}^+ := \{a_{t-h:t-1}\}\) and \(\mathcal{P}^- := \{a_{t-h-d:t-h-1}\}\).
@@ -141,7 +141,7 @@
             <!-- <p style="text-align:left; font-size: 0.80em;">
                 <b>Corollary 2:</b> In a highly deterministic environment, if \(a_t\) is temporally dependent on at least one state in \(\{s_{t-h-c-d:t-h-c-1}\}\) and \(\epsilon_{f}\) is finite, then $$\min_{\pi_{h+d}} \mathbb{E}_{G} \left[ \mathcal{L}(\pi_{h+d}, \pi^*)| C \right] < \min_{\pi_{h}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h}, \pi^*)| C \right]$$
             </p> -->
-            <div style="background-color: #e7f3fe; border-left: 4px solid #2196F3; padding: 10px; margin-bottom: 1em;">
+            <div style="background-color: #d1d0d0; border-left: 4px solid #000000; padding: 10px; margin-bottom: 1em;">
                 <p style="text-align:left; font-size: 0.80em; line-height: 2.0; margin-bottom: 1em;">
                     <b>Corollary 2:</b> In a highly deterministic environment, if \(a_t\) is temporally dependent on at least one state in \(\{s_{t-h-c-d:t-h-c-1}\}\) and \(\epsilon_{f}\) is finite, then $$\min_{\pi_{h+d}} \mathbb{E}_{G} \left[ \mathcal{L}(\pi_{h+d}, \pi^*)| C \right] < \min_{\pi_{h}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h}, \pi^*)| C \right]$$
                 </p>
@@ -153,7 +153,7 @@
             <!-- <p style="text-align:left; font-size: 0.80em;">
                 <b>Corollary 3:</b> In a highly stochastic environment, if temporal dependency decreases over time, <i>i.e.</i>, \(\alpha_f > \epsilon_b\), then $$\min_{\pi_{h+d}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h+d}, \pi^*)| C \right] > \min_{\pi_{h}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h}, \pi^*)| C \right]$$
             </p> -->
-            <div style="background-color: #e7f3fe; border-left: 4px solid #2196F3; padding: 10px; margin-bottom: 1em;">
+            <div style="background-color: #d1d0d0; border-left: 4px solid #000000; padding: 10px; margin-bottom: 1em;">
                 <p style="text-align:left; font-size: 0.80em; line-height: 1.5; margin-bottom: 1em;">
                     <b>Corollary 3:</b> In a highly stochastic environment, if temporal dependency decreases over time, <i>i.e.</i>, \(\alpha_f > \epsilon_b\), then $$\min_{\pi_{h+d}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h+d}, \pi^*)| C \right] > \min_{\pi_{h}} \mathbb{E}_{G} \left[\mathcal{L}(\pi_{h}, \pi^*)| C \right]$$
                 </p>
@@ -163,6 +163,31 @@
             </p>
             <p style="text-align:left; font-size: 0.80em;">
                 One way forward from here could be to always select the length of action chunks on the basis of how stochastic the environment is and the length of temporal dependencies in demonstrations. However, both of these are largely intractable. One could choose action chunking in dynamic environments only but it’s certainly possible that in many of the timesteps, there is no noise in which case we would want the temporal consistency action chunking brings whereas in other timesteps, where we encounter noise, we would want higher reactivity.
+            </p>
+            <heading style="display:block; font-size:2em; margin-bottom: 10px;">Diagnostic Simulations</heading>
+            <p style="text-align:left; font-size: 0.80em;">
+                We validate this analysis through a diagnostic simulation. The environment we consider is a 2-dimensional grid world where \(x \in [-10, 10]\) and \( y \in [0, 10]\).
+                <figure style="text-align:center;">
+                    <img src="images/BIDBlog/env+expert.png" alt="Results on Diffusion Policy in simulation" style="max-width:55%;">
+                    <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Fig: 2D diagnostic simulation's environment (left) and sample expert trajectory (right).</figcaption>
+                </figure>
+            </p>
+            <p style="text-align:left; font-size: 0.80em;">
+                The initial state is randomized and the goal of any agent is to reach the goal state by avoiding the danger zone. The environment can be stochastic which is characterized by a noise level \(\delta\). So, for any action, with probability \( 1 - \delta\), the action is successfully executed and with probability \(\delta\), the agent just stays idle. The expert policy has a few characteristics. From any initial state, with equal probability, the expert chooses to get to the goal state by first going upwards or by going downwards. Once this strategy is selected, the expert commits; they will never go upwards and then start going downwards again. Notice that our characterization of stochasticity is also such that even if the environment is stochastic, the expert will not go in the <em>opposite direction</em> to the one they intended to go. The other characteristic is that the expert carries out a staircase-like trajectory unless it's at the borders of the state space i.e., no two consecutive actions will be the exact same. These characteristics introduce both global and local latents underlying the expert trajectories and we will remember them as we analyse how temporally consistent each policy is. 
+            </p>
+            <figure style="text-align:center;">
+                <img src="images/BIDBlog/static_env_diagnostic.png" alt="Results on Diffusion Policy in simulation" style="max-width:55%;">
+                <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Fig: Performance and sample trajectories of a short action horizon policy and a long action horizon policy in a nearly deterministic environment with \(\delta = 0 \).</figcaption>
+            </figure>
+            <p style="text-align:left; font-size: 0.80em;">
+                In the static environment, we notice that increasing the action horizon yields better performance. The reason for this is that shorter action horizon does not capture the temporal dependencies across actions - with closed-loop operations, the policy often ends up not being able to execute the staircase-like motion that the expert does and often chooses less time-efficient trajectories causing it to not reach the goal state in time. In contrast, the long horizon policy imitates the expert near perfectly.                 
+            </p>
+            <figure style="text-align:center;">
+                <img src="images/BIDBlog/dynamic_env_diagnostic.png" alt="Results on Diffusion Policy in simulation" style="max-width:55%;">
+                <figcaption style="margin-top: 10px; font-style: italic; color: #555; font-size: 0.80em;">Fig: Performance and sample trajectories of a short action horizon policy and a long action horizon policy in a highly noisy environment with \(\delta = 0.9 \).</figcaption>
+            </figure>
+            <p style="text-align:left; font-size: 0.80em;">
+                In the highly dynamic environment, we notice that increasing the action horizon yields worse performance. The long horizon policy fails to react to the environmental stochasticity causing it to infer states incorrectly and hit the danger zone or leave the state space altogether. Even though the short horizon policy cannot perfectly capture the temporal consistencies, it reacts to stochasticity better causing it to be able to reach the goal state more often. We further validated our theory in more standard imitation learning settings too which we shall touch upon when we discuss the results.                   
             </p>
             <heading style="display:block; font-size:2em; margin-bottom: 10px;">Bidirectional Decoding</heading>
             <p style="text-align:left; font-size: 0.80em;">
