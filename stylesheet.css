@@ -60,3 +60,14 @@ h2 {
   margin: 0;
   font-size: 32px;
 }
+
+
+.gradient-name {
+  display: block;
+  font-size: 3em;
+  margin-bottom: 10px;
+  /* font-weight: bold; */
+  background: linear-gradient(to right, #001f3f, #b30000 ); /* dark blue to dark red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
