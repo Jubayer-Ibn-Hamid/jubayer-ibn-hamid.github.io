@@ -1,72 +1,85 @@
 /* ───────────────────────────────────────────────────────────────
-   Replace your “Update the font across the website” block with:
+   Global font and link styles
    ─────────────────────────────────────────────────────────────── */
 
-a {
-  color: #23649E;
-  text-decoration: none;
-}
-a:focus,
-a:hover {
-  color: #0F3A54;
-  text-decoration: underline;
-}
-  
-/* use the system UI stack (so on macOS you’ll get SF Pro Text) */
-body,
-td,
-th,
-tr,
-p,
-a,
-strong,
-h2,
-.papertitle,
-.name {
-  font-family: -apple-system, system-ui, BlinkMacSystemFont,
-                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  /* preserve your size settings */
-  font-size: inherit;
-}
-
-/* then just set sizes where needed: */
-
-body,
-td,
-th,
-tr,
-p,
-a {
-  font-size: 14px;
-}
-
-strong {
-  /* inherits the same size unless you want something different */
-}
-
-h2 {
-  margin: 0;
-  font-weight: normal;
-  font-size: 22px;
-}
-
-.papertitle {
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.name {
-  padding-top: 20px;
-  margin: 0;
-  font-size: 32px;
-}
-
-.gradient-name {
-  display: block;
-  font-size: 3em;
-  margin-bottom: 10px;
-  /* font-weight: bold; */
-  background: linear-gradient(to right, #001f3f, #b30000 ); /* dark blue to dark red */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+   body,
+   td,
+   th,
+   tr,
+   p,
+   a,
+   strong,
+   h2,
+   .papertitle,
+   .name {
+     font-family: -apple-system, system-ui, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+     font-size: inherit;
+   }
+   
+   /* Font sizes */
+   
+   body,
+   td,
+   th,
+   tr,
+   p,
+   a {
+     font-size: 14px;
+   }
+   
+   strong {
+     /* inherits the same size unless you want something different */
+   }
+   
+   h2 {
+     margin: 0;
+     font-weight: normal;
+     font-size: 22px;
+   }
+   
+   .papertitle {
+     font-weight: 700;
+     font-size: 14px;
+   }
+   
+   .name {
+     padding-top: 20px;
+     margin: 0;
+     font-size: 32px;
+   }
+   
+   /* ───────────────────────────────────────────────────────────────
+      Gradient styling for name
+      ─────────────────────────────────────────────────────────────── */
+   
+   .gradient-name {
+     display: block;
+     font-size: 3em;
+     margin-bottom: 10px;
+     background: linear-gradient(to right, #001f3f, #b30000); /* dark blue to dark red */
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+   
+   /* ───────────────────────────────────────────────────────────────
+      Gradient styling for hyperlinks
+      ─────────────────────────────────────────────────────────────── */
+   
+   a {
+     display: inline-block;
+     background: linear-gradient(to right, #001f3f, #b30000);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     text-decoration: none;
+     transition: background 0.3s ease;
+   }
+   
+   a:focus,
+   a:hover {
+     background: linear-gradient(to right, #003366, #cc0000);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     text-decoration: underline;
+   }
+   
