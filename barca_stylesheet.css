@@ -1,0 +1,84 @@
+/* ───────────────────────────────────────────────────────────────
+   Global font and link styles
+   ─────────────────────────────────────────────────────────────── */
+
+   body,
+   td,
+   th,
+   tr,
+   p,
+   a,
+   strong,
+   h2,
+   .papertitle,
+   .name {
+     font-family: -apple-system, system-ui, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+     font-size: inherit;
+   }
+   
+   /* Font sizes */
+   
+   body,
+   td,
+   th,
+   tr,
+   p,
+   a {
+     font-size: 14px;
+   }
+   
+   strong {
+     /* inherits the same size unless you want something different */
+   }
+   
+   h2 {
+     margin: 0;
+     font-weight: normal;
+     font-size: 22px;
+   }
+   
+   .papertitle {
+     font-weight: 700;
+     font-size: 14px;
+   }
+   
+   .name {
+     padding-top: 20px;
+     margin: 0;
+     font-size: 32px;
+   }
+   
+   /* ───────────────────────────────────────────────────────────────
+      Gradient styling for name
+      ─────────────────────────────────────────────────────────────── */
+   
+   .gradient-name {
+     display: block;
+     font-size: 3em;
+     margin-bottom: 10px;
+     background: linear-gradient(to right, #001C79, #b30000); /* midnight blue to dark red */
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+   }
+   
+   /* ───────────────────────────────────────────────────────────────
+      Gradient styling for hyperlinks
+      ─────────────────────────────────────────────────────────────── */
+   
+   a {
+     display: inline-block;
+     background: linear-gradient(to right, #001C79, #b30000);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     text-decoration: none;
+     transition: background 0.3s ease;
+   }
+   
+   a:focus,
+   a:hover {
+     background: linear-gradient(to right, #001C79, #b30000);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     text-decoration: underline;
+   }

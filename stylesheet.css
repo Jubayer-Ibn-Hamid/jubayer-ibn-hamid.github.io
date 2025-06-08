@@ -15,6 +15,7 @@
      font-family: -apple-system, system-ui, BlinkMacSystemFont,
                    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
      font-size: inherit;
+     color: #555; /* classy gray for default text */
    }
    
    /* Font sizes */
@@ -26,6 +27,7 @@
    p,
    a {
      font-size: 14px;
+     color: #555; /* ensure links not in .gradient styles stay gray */
    }
    
    strong {
@@ -36,49 +38,55 @@
      margin: 0;
      font-weight: normal;
      font-size: 22px;
+     color: #555; /* gray heading */
    }
    
    .papertitle {
      font-weight: 700;
      font-size: 14px;
+     color: #555; /* gray paper title */
    }
    
    .name {
      padding-top: 20px;
      margin: 0;
      font-size: 32px;
+     color: #555; /* gray name by default */
    }
    
    /* ───────────────────────────────────────────────────────────────
-      Gradient styling for name
+      Black styling for previously-gradient text
       ─────────────────────────────────────────────────────────────── */
    
    .gradient-name {
      display: block;
      font-size: 3em;
      margin-bottom: 10px;
-     background: linear-gradient(to right, #001C79, #b30000); /* midnight blue to dark red */
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
+     color: #111; /* solid soft black */
+     background: none !important;
+     -webkit-background-clip: unset !important;
+     -webkit-text-fill-color: unset !important;
    }
    
    /* ───────────────────────────────────────────────────────────────
-      Gradient styling for hyperlinks
+      Black styling for hyperlinks
       ─────────────────────────────────────────────────────────────── */
    
    a {
      display: inline-block;
-     background: linear-gradient(to right, #001C79, #b30000);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
+     color: #111 !important;   /* solid soft black */
+     background: none !important;
+     -webkit-background-clip: unset !important;
+     -webkit-text-fill-color: unset !important;
      text-decoration: none;
-     transition: background 0.3s ease;
+     transition: color 0.3s ease;
    }
    
    a:focus,
    a:hover {
-     background: linear-gradient(to right, #001C79, #b30000);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
+     color: #111 !important;   /* stay black on hover */
+     background: none !important;
+     -webkit-background-clip: unset !important;
+     -webkit-text-fill-color: unset !important;
      text-decoration: underline;
    }

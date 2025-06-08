@@ -1,0 +1,155 @@
+/* ───────────────────────────────────────────────────────────────
+   Color Variables for Easy Customization
+   ─────────────────────────────────────────────────────────────── */
+
+   :root {
+    /* The sophisticated gold color for all main text */
+    --text-color-gold: #D1BFA0;
+
+    /* MODIFIED: New white color for links */
+    --link-color-white: #ffffff;
+    --link-hover-white: #dcdcdc; /* A slightly softer white for hover */
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   Full-page background styles
+   ─────────────────────────────────────────────────────────────── */
+
+body {
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+        url('images/eia.png');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Styling for the main content container
+   ─────────────────────────────────────────────────────────────── */
+
+body > table {
+    background-color: rgba(25, 22, 28, 0.8);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+
+/* ───────────────────────────────────────────────────────────────
+   Global font and link styles with gold color
+   ─────────────────────────────────────────────────────────────── */
+
+body,
+td,
+th,
+tr,
+p,
+a,
+strong,
+h2,
+.papertitle,
+.name {
+  font-family: -apple-system, system-ui, BlinkMacSystemFont,
+                "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: inherit;
+  color: var(--text-color-gold); 
+}
+
+body,
+td,
+th,
+tr,
+p,
+a {
+  font-size: 14px;
+  color: var(--text-color-gold);
+}
+
+strong {
+    color: var(--text-color-gold);
+    font-weight: 600;
+}
+
+h2 {
+  margin: 0;
+  font-weight: normal;
+  font-size: 22px;
+  color: var(--text-color-gold);
+}
+
+.papertitle {
+  font-weight: 700;
+  font-size: 14px;
+  color: inherit;
+}
+
+.name {
+  padding-top: 20px;
+  margin: 0;
+  font-size: 32px;
+  color: inherit;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Styling for your name heading
+   ─────────────────────────────────────────────────────────────── */
+
+.gradient-name {
+  display: block;
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: var(--text-color-gold);
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   MODIFIED: Styling for hyperlinks (Now White)
+   ─────────────────────────────────────────────────────────────── */
+
+a {
+  display: inline-block;
+  /* MODIFIED: Changed link color to the white variable */
+  color: var(--link-color-white) !important;
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+a:focus,
+a:hover {
+  /* MODIFIED: Changed hover color to the softer white variable */
+  color: var(--link-hover-white) !important;   
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: unset !important;
+  text-decoration: underline;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Profile Picture Styling
+   ─────────────────────────────────────────────────────────────── */
+   
+.profile-picture {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+    /* MODIFIED: Changed the hover glow from pink to a subtle white */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
