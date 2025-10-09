@@ -38,7 +38,7 @@
      margin: 0;
      font-weight: normal;
      font-size: 22px;
-     color: #555; /* gray heading */
+     color: #111; /* gray heading */
    }
    
    .papertitle {
@@ -75,7 +75,7 @@
    a {
      display: inline-block;
      font-weight: 600;
-     color: #002626 !important;   /* solid soft black */
+     color: #002626 !important; 
      background: none !important;
      -webkit-background-clip: unset !important;
      -webkit-text-fill-color: unset !important;
