@@ -74,11 +74,12 @@
    
    a {
      display: inline-block;
-     color: #111 !important;   /* solid soft black */
+     color: #002626 !important;   /* solid soft black */
      background: none !important;
      -webkit-background-clip: unset !important;
      -webkit-text-fill-color: unset !important;
-     text-decoration: none;
+     /* text-decoration: none; */
+     text-decoration: underline;
      transition: color 0.3s ease;
    }
    
@@ -89,4 +90,12 @@
      -webkit-background-clip: unset !important;
      -webkit-text-fill-color: unset !important;
      text-decoration: underline;
+   }
+
+   a,
+   a:visited,
+   a:hover,
+   a:focus,
+   a:active {
+    text-decoration: underline !important;
    }
