@@ -1,225 +1,228 @@
 <!DOCTYPE HTML>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
   <title>Jubayer Ibn Hamid</title>
-  
-  <meta name="author" content="Jubayer Ibn Hamid">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>"> -->  
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet">
-  <link rel="icon" href="./images/cayleygraph.png">
-	<!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>"> -->
+  <meta name="author" content="Jubayer Ibn Hamid" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="stylesheet.css" />
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="./images/cayleygraph.png" />
+
+  <style>
+    /* Layout container for perfect left alignment across all sections */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px; /* <-- this sets the same left/right padding for all sections */
+      box-sizing: border-box;
+    }
+
+    /* Top row: text + image side-by-side */
+    .hero {
+      display: flex;
+      align-items: center;          /* vertically center image vs the whole text block */
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .hero-left {
+      flex: 1 1 60%;
+    }
+    .hero-right {
+      flex: 1 1 40%;
+      display: flex;
+      align-items: center;          /* centers the image within its column vertically */
+      justify-content: center;      /* centers the image horizontally in its column */
+    }
+    .hero-right img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      display: block;
+    }
+
+    /* Keep your little symmetry icon the same size as before */
+    .symmetry {
+      width: 30%;
+      max-width: 30%;
+      height: auto;
+      display: block;
+    }
+
+    /* Section blocks below the hero */
+    .section {
+      padding: 20px 0; /* vertical rhythm; horizontal is handled by .container */
+    }
+
+    /* Headings style (keep your inline styles if you prefer) */
+    .section h2 {
+      font-size: 2em;
+      margin: 0 0 10px 0;
+      font-weight: normal;
+    }
+
+    /* Lists reset so spacing looks tidy */
+    .section ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: right;
+      padding: 10px 0 20px 0;
+    }
+
+    /* Optional: make the hero stack on narrow screens */
+    @media (max-width: 720px) {
+      .hero {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .hero-right {
+        order: 2;
+      }
+      .hero-left {
+        order: 1;
+      }
+    }
+
+    .hero > img {
+      /* Set a consistent size for both images */
+      width: 25%;
+      max-width: 150px; /* Caps the size on very wide screens */
+      height: auto;
+      object-fit: cover; /* Ensures images fill the space cleanly */
+    }
+
+    .hero-name {
+      flex-grow: 1; /* Allows the name to take the remaining space */
+      margin: 0;      /* Removes default paragraph margins for better alignment */
+      text-align: left;
+    }
+
+    /* We'll use this class to add the rounded corners back to your photo */
+    .profile-photo {
+      border-radius: 6px;
+    }
+  </style>
 </head>
 
-
 <body>
-  <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-    <tr style="padding:0px">
-      <td style="padding:0px">
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr style="padding:0px">
-            <td style="padding:2.5%;width:63%;vertical-align:middle">
-              <p style="text-align:center">
-                <heading class="gradient-name">Jubayer Ibn Hamid</heading>
-                <!-- <heading style="display:block; font-size:3em; margin-bottom: 10px;">Jubayer Ibn Hamid</heading> -->
-              </p>
-              <!-- <p style="text-align:left; font-size: 1.1em; line-height: 1.5em;">
-                Ph.D. student<br>
-                Stanford Artificial Intelligence Laboratory (SAIL)<br>
-                Stanford University<br><br>
-                Email: [first name]@stanford.edu
-              </p>
-              <hr style="width:60%; margin: auto; margin-top:20px; margin-bottom:20px;"> -->
-              <p> I am a PhD student at Stanford University. Previously, I studied mathematical physics as an undergraduate at Stanford University.
-              <p style="text-align:center">
-              <p>
-                I work in artificial intelligence with a focus on sequential decision making and reinforcement learning. I am also interested in pure mathematics, especially abstract algebra and neighboring fields.
-              <p style="text-align: center">
-              <p>
-                My research is advised by Chelsea Finn and Dorsa Sadigh. I am currently in my first year of PhD and am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
-              </p>
-              <!-- <p>
-                I am a diehard Barca fan. I was born and raised in the beautiful city of Dhaka in Bangladesh.
-              </p> -->
-              <!-- <a href="data/CV.pdf">CV</a> &nbsp/&nbsp -->
-              <a href = "https://scholar.google.co.uk/citations?user=3G2EbP4AAAAJ&hl=en">Scholar</a> &nbsp/&nbsp
-              <!-- <a href="https://github.com/Jubayer-Hamid">Github</a> &nbsp/&nbsp -->
-              <a href="mailto:jubayer@stanford.edu">Email</a>
-              <!-- <a href="https://twitter.com/jubayer_hamid">Twitter</a> &nbsp &nbsp -->
-              </p>
-            </td>
-            <td style="padding:2.5%;width:40%;max-width:40%">
-              <!-- <a href="./images/lake_tahoe.JPG"><img style="width:100%;max-width:100%" alt="profile photo" src="./images/lake_tahoe.JPG" class="hoverZoomLink"></a> -->
-              <a href="./images/lake_tahoe.JPG"><img style="width:100%;max-width:100%" alt="profile photo" src="./images/lake_tahoe.JPG" class="profile-picture"></a>
-            </td>
-          </tr>
-        </tbody></table>
+  <div class="container">
+    <div class="section" style="padding-top: 20px;">
+      
+      <div class="hero">
+        <img src="./images/cayleygraph.png" alt="symmetry icon" />
+        <!-- <img src="./images/lake_tahoe.JPG" alt="profile photo" class="profile-photo" /> -->
+      </div>
+      
+      <p class="hero-name">
+        <heading class="gradient-name">Jubayer Ibn Hamid</heading>
+      </p>
+      <p>
+        I am a PhD student at Stanford University. I work in artificial intelligence with a focus on sequential decision making and reinforcement learning.
+      </p>
+      <p>
+        My research is advised by Chelsea Finn and Dorsa Sadigh. I am currently in my first year of PhD and am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
+      </p>
+      <p>
+        Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields. I am interested in the connections of other seemingly disparate fields of science to our understanding of machine learning.
+      </p>
+      <p style="text-align:left;">
+        <a href="https://scholar.google.co.uk/citations?user=3G2EbP4AAAAJ&hl=en">Scholar</a>
+        &nbsp;/&nbsp;
+        <a href="mailto:jubayer@stanford.edu">Email</a>
+      </p>
+    </div>
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-          <tbody>
-          <tr>
-         <td style="padding:20px;width:100%;vertical-align:middle">
-         <h2 style="display:block; font-size:2em; margin-bottom: 10px;">Selected Publications</h2>
-         <!-- <p>
-            I am currently interested in deep exploration methods for online reinforcement learning fine-tuning, spanning both language models and embodied agents. My research also focuses on test-time decoding from complex, multimodal policies and training robotic policies with long context. Additionally, I am interested in understanding what kinds of data to scale for improved generalization in robot learning.
-         </p> -->
-         <!-- Link to full publication list -->
-         <!-- <heading style="display:block; font-size:1em; margin-bottom: 10px;">Publications:</heading> -->
-         <ul style="margin-top: 0;">
-           <li>
-             <p>
-             <papertitle><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></papertitle> Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh. Preprint.</a>
-             </p>
-           </li>
-           <li>
-             <p>
-             <papertitle><a href="https://arxiv.org/abs/2408.17355">Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling.</a></papertitle> Yuejiang Liu*, Jubayer Ibn Hamid*, Annie Xie, Yoonho Lee, Max Du, Chelsea Finn. International Conference on Learning Representations (ICLR), 2025. (<a href="https://bid-robot.github.io/">Website</a>)</a>
-             </p>
-           </li>
-           <!-- <li>
-             <p>
-             <papertitle><a href="https://arxiv.org/abs/2404.10282">Tripod: Three Complementary Inductive Biases for Disentangled Representation Learning.</a></papertitle> Kyle Hsu*, Jubayer Ibn Hamid*, Kaylee Burns, Chelsea Finn, Jiajun Wu. International Conference on Machine Learning (ICML), 2024.</a>
-             </p>
-           </li>
-           <li>
-             <p>
-             <papertitle><a href="https://arxiv.org/abs/2312.12444">What Makes Pre-trained Visual Representations Successful For Robust Manipulation?</a></papertitle> Kaylee Burns, Zach Witzel, Jubayer Ibn Hamid, Tianhe Yu, Chelsea Finn, Karol Hausman. Conference on Robot Learning (CoRL), 2024.</a>
-             </p>
-           </li> -->
-         </ul>
-         <p style="margin-bottom: 0;">
-          (*) denotes co-first authorship
-         </p>
-         <p style="margin-bottom: 15px;">
-          Full list of publications can be found here: <a href="publications.html" style="color:#045a8d; text-decoration:none;">Publications</a>.
-        </p>
-         </td>
-         </tr>
-         </tbody>
-         </table>
+    <!-- Selected Publications -->
+    <div class="section">
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>
+          <p>
+            <papertitle><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></papertitle>
+            Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh. Preprint.
+          </p>
+        </li>
+        <li>
+          <p>
+            <papertitle><a href="https://arxiv.org/abs/2408.17355">Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling.</a></papertitle>
+            Yuejiang Liu*, Jubayer Ibn Hamid*, Annie Xie, Yoonho Lee, Max Du, Chelsea Finn. International Conference on Learning Representations (ICLR), 2025.
+            (<a href="https://bid-robot.github.io/">Website</a>)
+          </p>
+        </li>
+      </ul>
+      <p style="margin-bottom:0;">(*) denotes co-first authorship</p>
+      <p style="margin-bottom:15px;">
+        Full list of publications can be found here:
+        <a href="publications.html" style="color:#045a8d; text-decoration:none;">Publications</a>.
+      </p>
+    </div>
 
-        <!-- <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-            <tr>
-            <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading style="display:block; font-size:2em; margin-bottom: 10px;">Notes</heading>
-              <p>
-                I am sharing notes on various topics that have fascinated me. These are not meant to be in-depth. Rather, they are meant to cover some of the basic constructions that show up periodically and are also interesting in and of themselves.
-              </p>
-              <p>
-                <a href="data/Algebraic_Geometry_Notes.pdf">Algebraic Geometry</a>. <i>Foundational constructions and results in algebraic geometry (Incomplete).</i>&nbsp;&nbsp; 
-              </p>
-              <p>
-                <a href="data/Algebraic topology notes.pdf">Algebraic Topology</a>. <i>Foundational constructions - fundamental group, homology and cohomology. (Incomplete, will typeset later). </i>&nbsp;&nbsp; 
-              </p>
-              <p>
-                <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem</a>. <i>Weak versions of Whitney's Embedding and Immersion theorem, which are often sufficient. </i>&nbsp;&nbsp; 
-              </p>
-              <p>
-                <a href="data/Policy_Gradient_Methods.pdf">Policy Gradient Methods</a>. <i>Building blocks (including the policy gradient theorems for both episodic and continuing tasks) of policy gradient algorithms.</i>&nbsp;&nbsp; 
-              </p>
-            </td>
-          </tr>
-        </tbody></table>	 -->
-        <table style="width:100%; border:0px; border-spacing:0px; border-collapse:separate; margin-right:auto; margin-left:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px; width:100%; vertical-align:middle;">
-                <h2 style="display:block; font-size:2em; margin-bottom:10px;">Notes</h2>
-                <p>
-                  Introductory notes on various topics I have found to be fascinating and/or useful in my own research.
-                </p>
-                <ul style="margin-top:0;">
-                  <li>
-                    <p>
-                      <a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a> Notes on introductory category theory and foundational constructions in algebraic geometry (work in progress).
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Abstract Algebra.</a> Notes on abstract algebra (work in progress).
-                    </p>
-                  </li>
-                  <!-- <li>
-                    <p>
-                      <a href="data/Algebraic topology notes.pdf">Algebraic Topology.</a> Foundational constructions – fundamental group, homology and cohomology. (work in progress).
-                    </p>
-                  </li> -->
-                  <li>
-                    <p>
-                      <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a> Weak versions of Whitney's Embedding and Immersion theorem, which are often sufficient.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <a href="data/RL_Notes__final_.pdf">Policy Gradient Methods.</a> Building blocks of policy gradient methods in online reinforcement learning.
-                    </p>
-                  </li>
-                  <li>
-                    <p>
-                      <a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a> Introduction to trust region methods for optimization.
-                    </p>
-                  </li>
-                </ul>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Notes -->
+    <div class="section">
+      <h2>Notes</h2>
+      <p>Introductory notes on various topics I have found to be fascinating and/or useful in my own research.</p>
+      <ul>
+        <li>
+          <p>
+            <a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a>
+            Notes on introductory category theory and foundational constructions in algebraic geometry (work in progress).
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Abstract Algebra.</a>
+            Notes on abstract algebra (work in progress).
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a>
+            Weak versions of Whitney's Embedding and Immersion theorem, which are often sufficient.
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="data/RL_Notes__final_.pdf">Policy Gradient Methods.</a>
+            Building blocks of policy gradient methods in online reinforcement learning.
+          </p>
+        </li>
+        <li>
+          <p>
+            <a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a>
+            Introduction to trust region methods for optimization.
+          </p>
+        </li>
+      </ul>
+    </div>
 
-        <!-- <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle;">
-                <h2 style="font-size:2em; margin-bottom:10px;">Talks</h2>
-                <p>
-                  Bidirectional Decoding.<i> OpenAI. 25th February, 2025.</i>
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>         -->
+    <!-- Teaching -->
+    <div class="section">
+      <h2>Teaching</h2>
+      <p>
+        <a href="https://cs224r.stanford.edu" target="_blank" rel="noopener noreferrer">
+          CS 224R - Deep Reinforcement Learning.
+        </a>
+        <i>Head CA. Spring, 2025.</i>
+      </p>
+      <p>
+        <a href="https://cs229.stanford.edu" target="_blank" rel="noopener noreferrer">
+          CS 229 - Machine Learning.
+        </a>
+        <i>CA. Winter, 2025.</i>
+      </p>
+    </div>
 
-        
-        <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:auto;">
-          <tbody>
-            <tr>
-              <td style="padding:20px;width:100%;vertical-align:middle;">
-                <h2 style="font-size:2em; margin-bottom:10px;">Teaching</h2>
-                <p>
-                  <a href="https://cs224r.stanford.edu"
-                     target="_blank" 
-                     rel="noopener noreferrer">
-                    CS 224R - Deep Reinforcement Learning.
-                  </a> 
-                  <i>Head CA. Spring, 2025.</i>
-                </p>
-                <p>
-                  <a href="https://cs229.stanford.edu"
-                     target="_blank" 
-                     rel="noopener noreferrer">
-                    CS 229 - Machine Learning.
-                  </a> 
-                  <i>CA. Winter, 2025.</i>
-                </p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        </tbody></table>
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr>
-            <td style="padding:0px">
-              <br>
-              <p style="text-align:right;">
-                <a href="https://jonbarron.info/">Template</a>
-              </p>
-            </td>
-          </tr>
-        </tbody></table>
-      </td>
-    </tr>
-  </table>
+    <!-- Footer -->
+    <div class="footer">
+      <a href="https://jonbarron.info/">Template</a>
+    </div>
+  </div>
 </body>
 </html>
