@@ -108,6 +108,30 @@
     .profile-photo {
       border-radius: 6px;
     }
+
+    .hero-text-image {
+      display: flex;
+      align-items: center;   /* vertically centers the image relative to the text block */
+      gap: 24px;             /* space between text and image */
+    }
+
+    .text-block {
+      flex: 3;               /* text takes more horizontal space */
+    }
+
+    .image-block {
+      flex: 1;               /* image column smaller */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .image-block img {
+      width: 100%;
+      max-width: 180px;      /* adjust this to change image size */
+      height: auto;
+      border-radius: 8px;    /* soft rounded corners */
+    }
   </style>
 </head>
 
@@ -123,15 +147,23 @@
       <p class="hero-name">
         <heading class="gradient-name">Jubayer Ibn Hamid</heading>
       </p>
-      <p>
-        I am a PhD student at Stanford University. I work in artificial intelligence with a focus on sequential decision making and reinforcement learning.
-      </p>
-      <p>
-        My research is advised by Chelsea Finn and Dorsa Sadigh. I am currently in my first year of PhD and am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
-      </p>
-      <p>
-        Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields. I am interested in the connections of other seemingly disparate fields of science to our understanding of machine learning.
-      </p>
+      <div class="hero-text-image">
+        <div class="text-block">
+          <p>
+            I am a PhD student at Stanford University. I work in artificial intelligence with a focus on sequential decision making and reinforcement learning.
+          </p>
+          <p>
+            My research is advised by Chelsea Finn and Dorsa Sadigh. I am currently in my first year of PhD and am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
+          </p>
+          <p>
+            Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields. I am interested in the connections of other seemingly disparate fields of science to our understanding of machine learning.
+          </p>
+        </div>
+      
+        <div class="image-block">
+          <img src="./images/lake_tahoe.JPG" alt="Profile Photo" />
+        </div>
+      </div>      
       <p style="text-align:left;">
         <a href="https://arxiv.org/search/?searchtype=author&query=Hamid%2C+J+I">ArXiv</a>
         &nbsp;/&nbsp;
