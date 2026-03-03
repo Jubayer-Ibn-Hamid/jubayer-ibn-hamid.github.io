@@ -54,7 +54,11 @@
 
     /* Section blocks below the hero */
     .section {
-      padding: 20px 0; /* vertical rhythm; horizontal is handled by .container */
+      padding: 20px 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid #eee;
     }
 
     /* Headings style (keep your inline styles if you prefer) */
@@ -72,8 +76,11 @@
 
     /* Footer */
     .footer {
-      text-align: right;
+      text-align: center;
       padding: 10px 0 20px 0;
+      color: #888;
+      font-size: 0.85em;
+      border-top: 1px solid #eee;
     }
 
     /* Optional: make the hero stack on narrow screens */
@@ -109,28 +116,33 @@
       border-radius: 6px;
     }
 
-    .hero-text-image {
+    .hero-centered {
       display: flex;
-      align-items: center;   /* vertically centers the image relative to the text block */
-      gap: 24px;             /* space between text and image */
-    }
-
-    .text-block {
-      flex: 3;               /* text takes more horizontal space */
-    }
-
-    .image-block {
-      flex: 1;               /* image column smaller */
-      display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+      gap: 12px;
     }
 
-    .image-block img {
-      width: 100%;
-      max-width: 180px;      /* adjust this to change image size */
+    .hero-centered img {
+      width: 180px;
       height: auto;
-      border-radius: 8px;    /* soft rounded corners */
+      border-radius: 8px;
+      display: block;
+    }
+
+    .hero-centered .hero-name {
+      text-align: center;
+      margin: 0;
+    }
+
+    .hero-centered .hero-links {
+      margin: 0;
+    }
+
+    .hero-bio {
+      text-align: left;
+      margin-top: 20px;
     }
   </style>
 </head>
@@ -145,44 +157,44 @@
       <!-- Leave some vertical space -->
       <div style="height: 60px;"></div>
       
-      <p class="hero-name">
-        <heading class="gradient-name">Jubayer Ibn Hamid</heading>
-      </p>
-      <!-- Leave some vertical space -->
-      <div style="height: 20px;"></div>
-      <div class="hero-text-image">
-        <div class="text-block">
-          <p>
-            I am a 1st year PhD student at Stanford University. I work in artificial intelligence with a focus on algorithms for sequential decision making and reinforcement learning.
-          </p>
-          <p>
-            My research is advised by Chelsea Finn and Dorsa Sadigh. I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
-          </p>
-          <p>
-            Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields. 
-          </p>
-        </div>
-      
-        <div class="image-block">
-          <img src="./images/lake_tahoe.JPG" alt="Profile Photo" />
-        </div>
-      </div>      
-      <p style="text-align:left;">
-        <a href="https://arxiv.org/search/?searchtype=author&query=Hamid%2C+J+I">ArXiv</a>
-        &nbsp;/&nbsp;
-        <a href="https://scholar.google.co.uk/citations?user=3G2EbP4AAAAJ&hl=en">Scholar</a>
-        &nbsp;/&nbsp;
-        <a href="data/CV.pdf">CV</a>
-        &nbsp;/&nbsp;
-        <a href="mailto:jubayer@stanford.edu">Email</a>
-      </p>
+      <div class="hero-centered">
+        <img src="./images/lake_tahoe.JPG" alt="Profile Photo" />
+        <p class="hero-name">
+          <heading class="gradient-name">Jubayer Ibn Hamid</heading>
+        </p>
+        <p class="hero-links">
+          <a href="https://arxiv.org/search/?searchtype=author&query=Hamid%2C+J+I">ArXiv</a>
+          &nbsp;/&nbsp;
+          <a href="https://scholar.google.co.uk/citations?user=3G2EbP4AAAAJ&hl=en">Scholar</a>
+          &nbsp;/&nbsp;
+          <a href="data/CV.pdf">CV</a>
+          &nbsp;/&nbsp;
+          <a href="mailto:jubayer@stanford.edu">Email</a>
+        </p>
+      </div>
+      <div class="hero-bio">
+        <p>
+          I am a 1st year PhD student at Stanford University. I work in artificial intelligence with a focus on algorithms for sequential decision making and reinforcement learning.
+        </p>
+        <p>
+          My research is advised by Chelsea Finn and Dorsa Sadigh. I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL).
+        </p>
+        <p>
+          Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields.
+        </p>
+      </div>
     </div>
 
-    <!-- Selected Publications -->
+    <!-- Research -->
     <div class="section">
       <h2>Research</h2>
-      <p style="margin-bottom:0;"> I work on reinforcement learning and sequential decision-making with the goal of developing AI that can solve extremely complex problems in new ways. My current interests lie in a number of different areas, including exploration-exploitation strategies, training-time and inference-time search, and stabilizing deep RL over long horizons.</p>
-      <p style="margin-bottom:0;"> Some papers that represent my research interests (* denotes co-lead):</p>
+      <p> I work on reinforcement learning and sequential decision-making with the goal of developing AI that can solve extremely complex problems in new ways. My current interests lie in a number of different areas, including exploration-exploitation strategies, training-time and inference-time search, and stabilizing deep RL over long horizons.</p>
+    </div>
+
+    <!-- Selected Papers -->
+    <div class="section">
+      <h2>Selected Papers</h2>
+      <p style="margin-bottom:0;">* denotes co-lead.</p>
       <ul>
         <li>
           <p>
@@ -257,7 +269,7 @@
 
     <!-- Footer -->
     <div class="footer">
-      <a href="https://jonbarron.info/">Template</a>
+      &copy; 2025 Jubayer Ibn Hamid &middot; Template by <a href="https://jonbarron.info/">Jon Barron</a>
     </div>
   </div>
 </body>
