@@ -15,41 +15,60 @@
     .container {
       max-width: 800px;
       margin: 0 auto;
-      padding: 0 20px; /* <-- this sets the same left/right padding for all sections */
+      padding: 0 20px;
       box-sizing: border-box;
     }
 
-    /* Top row: text + image side-by-side */
-    .hero {
-      display: flex;
-      align-items: center;          /* vertically center image vs the whole text block */
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .hero-left {
-      flex: 1 1 60%;
-    }
-    .hero-right {
-      flex: 1 1 40%;
-      display: flex;
-      align-items: center;          /* centers the image within its column vertically */
-      justify-content: center;      /* centers the image horizontally in its column */
-    }
-    .hero-right img {
+    /* Teal background banner — scoped to content width */
+    .hero-banner {
       width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      display: block;
     }
 
-    /* Keep your little symmetry icon the same size as before */
-    .symmetry {
-      width: 30%;
-      max-width: 30%;
-      height: auto;
+    .hero-banner .container {
+      background-image: url('./images/teal.png');
+      background-size: cover;
+      background-position: center;
+      padding-bottom: 40px;
+    }
+
+    /* White text overrides inside the banner */
+    .hero-banner .gradient-name {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      font-weight: 300 !important;
+    }
+
+    .hero-banner p,
+    .hero-banner .hero-name,
+    .hero-banner .hero-links {
+      color: #fff;
+      font-weight: 300;
+    }
+
+    .hero-banner a {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      font-weight: 300 !important;
+    }
+
+    .hero-banner a:hover,
+    .hero-banner a:focus {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+    /* Profile photo */
+    .profile-square {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
       display: block;
+      margin-right: 60px;
+      padding: 0;
+      border: none;
+      background: none;
     }
 
     /* Section blocks below the hero */
@@ -61,7 +80,7 @@
       border-top: 1px solid #eee;
     }
 
-    /* Headings style (keep your inline styles if you prefer) */
+    /* Headings style */
     .section h2 {
       font-size: 2em;
       margin: 0 0 10px 0;
@@ -83,61 +102,35 @@
       border-top: 1px solid #eee;
     }
 
-    /* Optional: make the hero stack on narrow screens */
-    @media (max-width: 720px) {
-      .hero {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .hero-right {
-        order: 2;
-      }
-      .hero-left {
-        order: 1;
-      }
-    }
-
-    .hero > img {
-      /* Set a consistent size for both images */
-      width: 25%;
-      max-width: 150px; /* Caps the size on very wide screens */
-      height: auto;
-      object-fit: cover; /* Ensures images fill the space cleanly */
-    }
-
     .hero-name {
-      flex-grow: 1; /* Allows the name to take the remaining space */
-      margin: 0;      /* Removes default paragraph margins for better alignment */
+      flex-grow: 1;
+      margin: 0;
       text-align: left;
-    }
-
-    /* We'll use this class to add the rounded corners back to your photo */
-    .profile-photo {
-      border-radius: 6px;
     }
 
     .hero-centered {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       align-items: center;
-      text-align: center;
-      gap: 12px;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .hero-centered img {
-      width: 180px;
-      height: auto;
-      border-radius: 8px;
-      display: block;
+    .hero-centered .hero-text {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
 
     .hero-centered .hero-name {
-      text-align: center;
+      text-align: left;
       margin: 0;
     }
 
     .hero-centered .hero-links {
       margin: 0;
+      text-align: left;
     }
 
     .hero-bio {
@@ -148,18 +141,12 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="section" style="padding-top: 20px;">
-      
-      <!-- <div class="hero">
-        <img src="./images/cayleygraph.png" alt="symmetry icon" />
-      </div> -->
-      <!-- Leave some vertical space -->
+  <!-- Hero banner with teal background -->
+  <div class="hero-banner">
+    <div class="container">
       <div style="height: 60px;"></div>
-      
       <div class="hero-centered">
-        <img src="./images/lake_tahoe.JPG" alt="Profile Photo" />
-        <div style="display: inline-flex; flex-direction: column; align-items: stretch;">
+        <div class="hero-text">
           <p class="hero-name">
             <heading class="gradient-name">Jubayer Ibn Hamid</heading>
           </p>
@@ -173,8 +160,15 @@
             <a href="mailto:jubayer@stanford.edu">Email</a>
           </p>
         </div>
+        <img src="./images/lake_tahoe.JPG" alt="Profile Photo" class="profile-square" />
       </div>
-<div class="hero-bio">
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="container">
+    <div class="section" style="padding-top: 20px;">
+      <div class="hero-bio">
         <p>
           I am a 1st year PhD student at Stanford University. I work in artificial intelligence with a focus on algorithms for sequential decision making and reinforcement learning.
         </p>
