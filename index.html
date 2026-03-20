@@ -22,6 +22,7 @@
     /* Teal background banner — scoped to content width */
     .hero-banner {
       width: 100%;
+      position: relative;
     }
 
     .hero-banner .container {
@@ -31,6 +32,7 @@
       padding-bottom: 40px;
       padding-left: 60px;
       padding-right: 60px;
+      position: relative;
     }
 
     /* White text overrides inside the banner */
@@ -142,6 +144,70 @@
       text-align: left;
       margin-top: 20px;
     }
+
+    /* ── Dark mode link ── */
+    #darkToggle {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      z-index: 1000;
+      font-size: 12px;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+      font-family: 'Lato', sans-serif;
+      font-weight: 400 !important;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    #darkToggle:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+
+
+    /* ── Dark mode styles ── */
+    body.dark-mode {
+      background-color: #000 !important;
+    }
+
+    body.dark-mode .section,
+    body.dark-mode .container,
+    body.dark-mode .hero-bio {
+      background-color: transparent;
+    }
+
+    body.dark-mode p,
+    body.dark-mode li,
+    body.dark-mode h2,
+    body.dark-mode .papertitle,
+    body.dark-mode .name,
+    body.dark-mode strong,
+    body.dark-mode i,
+    body.dark-mode .footer {
+      color: #fff !important;
+    }
+
+    body.dark-mode a {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+    body.dark-mode a:hover,
+    body.dark-mode a:focus {
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+    body.dark-mode .section + .section {
+      border-top-color: #444;
+    }
+
+    body.dark-mode .footer {
+      border-top-color: #444;
+    }
   </style>
 </head>
 
@@ -149,6 +215,7 @@
   <!-- Hero banner with teal background -->
   <div class="hero-banner">
     <div class="container">
+      <a id="darkToggle" href="#">dark</a>
       <div style="height: 60px;"></div>
       <div class="hero-centered">
         <div class="hero-text">
@@ -189,7 +256,10 @@
     <!-- Research -->
     <div class="section">
       <h2>Research</h2>
+      <img src="./images/cayleygraph.png" alt="Cayley Graph" style="float:right; width:110px; margin:2px 0 4px 16px;" />
       <p> I work on reinforcement learning and sequential decision-making with the goal of developing AI that can solve extremely complex problems in new ways. My current interests lie in a number of different areas, including exploration-exploitation strategies, training-time and inference-time search, and stabilizing deep RL over long horizons.</p>
+      <p> In my recent work, I have studied algorithms designed towards these goals and how they interact with large language models. </p>
+      <div style="clear:both;"></div>
     </div>
 
     <!-- Selected Papers -->
@@ -225,36 +295,41 @@
     <!-- Notes -->
     <div class="section">
       <h2>Notes</h2>
-      <p>Introductory notes on various topics I find interesting.</p>
-      <ul>
-        <li>
-          <p>
-            <a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a>
-            (in progress)
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Abstract Algebra.</a>
-            (in progress)
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/RL_Notes__final_.pdf">Deep Reinforcement Learning.</a>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a>
-          </p>
-        </li>
-      </ul>
+      <div style="display:flex; align-items:flex-start; gap:20px;">
+        <div style="flex:1;">
+          <p>Introductory notes on various topics I find interesting.</p>
+          <ul>
+            <li>
+              <p>
+                <a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a>
+                (in progress)
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Abstract Algebra.</a>
+                (in progress)
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="data/RL_Notes__final_.pdf">Deep Reinforcement Learning.</a>
+              </p>
+            </li>
+            <li>
+              <p>
+                <a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a>
+              </p>
+            </li>
+          </ul>
+        </div>
+        <img src="./images/fractal_tree.png" alt="Fractal Tree" style="width:180px; flex-shrink:0; display:block;" />
+      </div>
     </div>
 
     <!-- Teaching -->
@@ -279,5 +354,19 @@
       &copy; 2026 Jubayer Ibn Hamid
     </div>
   </div>
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const saved = localStorage.getItem('darkMode');
+    if (saved === 'true') {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = 'light';
+    }
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      const on = document.body.classList.toggle('dark-mode');
+      toggle.textContent = on ? 'light' : 'dark';
+      localStorage.setItem('darkMode', on);
+    });
+  </script>
 </body>
 </html>
