@@ -26,7 +26,7 @@
     }
 
     .hero-banner .container {
-      background-image: url('./images/3c321.jpg');
+      background-image: url('./images/3c321.jpg'); /* default; overridden by JS */
       background-size: 82.5%;
       background-position: 65% 60%;
       padding-bottom: 40px;
@@ -358,6 +358,11 @@
       &copy; 2026 Jubayer Ibn Hamid
     </div>
   </div>
+  <script>
+    // Randomly pick hero background image on each page load
+    const heroBg = Math.random() < 0.5 ? './images/3c321.jpg' : './images/teal.png';
+    document.querySelector('.hero-banner .container').style.backgroundImage = `url('${heroBg}')`;
+  </script>
   <script>
     const toggle = document.getElementById('darkToggle');
     const saved = localStorage.getItem('darkMode');
