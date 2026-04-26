@@ -60,7 +60,7 @@
    
    .gradient-name {
      display: block;
-     font-size: clamp(1.1rem, 5vw, 2.4em);
+     font-size: clamp(0.85rem, 3.2vw, 1.6rem);
      white-space: nowrap;
      margin-bottom: 10px;
      color: #002626; /* solid soft black */
