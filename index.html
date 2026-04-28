@@ -25,7 +25,7 @@
     }
 
     .hero-banner .container {
-      background-image: url('./images/3c321.jpg'); /* default; overridden by JS */
+      background-image: url('./images/teal.png'); /* default; overridden by JS */
       background-size: 82.5%;
       background-position: 65% 60%;
       padding-bottom: 40px;
@@ -242,7 +242,7 @@
           I am a 1st year PhD student at Stanford University. I work in artificial intelligence with a focus on algorithms for sequential decision making and reinforcement learning.
         </p>
         <p>
-          I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL), where my research is advised by Dorsa Sadigh.
+          I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL), where my research is advised by Dorsa Sadigh, Chelsea Finn, and Noah Goodman.
         </p>
         <p>
           Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields.
@@ -371,7 +371,7 @@
   </div>
   <script>
     // Randomly pick hero background image on each page load
-    const heroBg = Math.random() < 0.5 ? './images/3c321.jpg' : './images/teal.png';
+    const heroBg = Math.random() < 0.5 ? './images/teal.png' : './images/teal.png';
     document.querySelector('.hero-banner .container').style.backgroundImage = `url('${heroBg}')`;
   </script>
   <script>
