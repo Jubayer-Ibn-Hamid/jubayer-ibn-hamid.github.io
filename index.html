@@ -84,6 +84,23 @@
       border-top: 1px solid #eee;
     }
 
+    .section + .selected-papers-section {
+      border-top: 0;
+    }
+
+    .selected-works-label {
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+
+    .research-section {
+      padding-bottom: 8px;
+    }
+
+    .selected-papers-section {
+      padding-top: 0;
+    }
+
     /* Headings style */
     .section h2 {
       font-size: 2em;
@@ -250,14 +267,14 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section research-section">
       <h2>Research</h2>
       <p> I work on reinforcement learning and sequential decision-making with the goal of developing AI that can solve extremely complex problems, especially in scientific discovery, in novel ways and uncover new knowledge. These days, I am interested in exploration-exploitation strategies, and training-time and inference-time search.</p>
       <div style="clear:both;"></div>
     </div>
 
-    <div class="section">
-      <h2>Selected Papers</h2>
+    <div class="section selected-papers-section">
+      <p class="selected-works-label">Selected Papers:</p>
       <ul>
         <li>
           <p>
@@ -275,12 +292,6 @@
           <p>
             <papertitle><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></papertitle>
             Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh. International Conference on Learning Representations (ICLR), 2026.
-          </p>
-        </li>
-        <li>
-          <p>
-            <papertitle><a href="https://arxiv.org/abs/2408.17355">Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling.</a></papertitle>
-            Yuejiang Liu*, Jubayer Ibn Hamid*, Annie Xie, Yoonho Lee, Max Du, Chelsea Finn. International Conference on Learning Representations (ICLR), 2025.
           </p>
         </li>
       </ul>
