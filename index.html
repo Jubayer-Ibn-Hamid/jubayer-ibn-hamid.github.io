@@ -95,14 +95,15 @@
     }
 
     .selected-papers-toggle,
+    .all-papers-toggle,
     .notes-toggle,
-    .teaching-toggle,
-    .all-papers-link {
+    .teaching-toggle {
       font-size: 1.1em;
       font-weight: 600;
     }
 
     .selected-papers-toggle,
+    .all-papers-toggle,
     .notes-toggle,
     .teaching-toggle {
       display: inline-block;
@@ -113,6 +114,7 @@
     }
 
     .selected-papers-toggle::-webkit-details-marker,
+    .all-papers-toggle::-webkit-details-marker,
     .notes-toggle::-webkit-details-marker,
     .teaching-toggle::-webkit-details-marker {
       display: none;
@@ -120,6 +122,8 @@
 
     .selected-papers-toggle:hover,
     .selected-papers-toggle:focus-visible,
+    .all-papers-toggle:hover,
+    .all-papers-toggle:focus-visible,
     .notes-toggle:hover,
     .notes-toggle:focus-visible,
     .teaching-toggle:hover,
@@ -127,11 +131,8 @@
       text-decoration: underline;
     }
 
-    .notes-disclosure {
-      margin-top: 10px;
-    }
-
     .selected-papers-table,
+    .all-papers-table,
     .notes-table,
     .teaching-table {
       width: 100%;
@@ -144,6 +145,7 @@
     }
 
     .selected-papers-table td,
+    .all-papers-table td,
     .notes-table td,
     .teaching-table td {
       border: 1px solid #999;
@@ -273,18 +275,21 @@
     }
 
     body.dark-mode .selected-papers-toggle,
+    body.dark-mode .all-papers-toggle,
     body.dark-mode .notes-toggle,
     body.dark-mode .teaching-toggle {
       color: #fff;
     }
 
     body.dark-mode .selected-papers-table,
+    body.dark-mode .all-papers-table,
     body.dark-mode .notes-table,
     body.dark-mode .teaching-table {
       background-color: #1b1b1b;
     }
 
     body.dark-mode .selected-papers-table td,
+    body.dark-mode .all-papers-table td,
     body.dark-mode .notes-table td,
     body.dark-mode .teaching-table td {
       color: #fff;
@@ -363,9 +368,71 @@
         </table>
         <p style="margin-top:4px; margin-bottom:8px;">(* denotes co-lead)</p>
       </details>
-      <p style="margin: 0;">
-        <a href="publications.html" class="all-papers-link">All Papers</a>
-      </p>
+      <details class="all-papers-disclosure">
+        <summary class="all-papers-toggle">All Papers</summary>
+        <table class="all-papers-table">
+          <tbody>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2606.23595">SPIRAL: Learning to Search and Aggregate.</a></strong>
+                <span class="paper-authors-row">Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Michael Y. Li, Omar Shaikh, Yoonho Lee, Dorsa Sadigh, Chelsea Finn, Noah Goodman.</span>
+                <i>Preprint (ongoing work).</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2604.17654">Poly-EPO: Training Exploratory Reasoning Models.</a></strong>
+                <span class="paper-authors-row">Ifdita Hasan Orney*, Jubayer Ibn Hamid*, Shreya Ramanujam, Shirley Wu, Hengyuan Hu, Noah Goodman, Dorsa Sadigh, Chelsea Finn.</span>
+                <i>Preprint (under submission).</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2604.18002">Neural Garbage Collection: Learning to Forget while Learning to Reason.</a></strong>
+                <span class="paper-authors-row">Michael Y. Li, Jubayer Ibn Hamid, Emily B. Fox, Noah D. Goodman.</span>
+                <i>Preprint (under submission).</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></strong>
+                <span class="paper-authors-row">Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh.</span>
+                <i>International Conference on Learning Representations (ICLR), 2026.</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2512.21235">RoboCade: Gamifying Robot Data Collection.</a></strong>
+                <span class="paper-authors-row">Suvir Mirchandani*, Mia Tang*, Jiafei Duan, Jubayer Ibn Hamid, Michael Cho, Dorsa Sadigh.</span>
+                <i>International Conference on Robotics and Automation (ICRA), 2026.</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2408.17355">Bidirectional Decoding: Improving Action Chunking via Guided Test-Time Sampling.</a></strong>
+                <span class="paper-authors-row">Yuejiang Liu*, Jubayer Ibn Hamid*, Annie Xie, Yoonho Lee, Max Du, Chelsea Finn.</span>
+                <i>International Conference on Learning Representations (ICLR), 2025.</i>
+                <a href="https://bid-robot.github.io/">(Website)</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2404.10282">Tripod: Three Complementary Inductive Biases for Disentangled Representation Learning.</a></strong>
+                <span class="paper-authors-row">Kyle Hsu*, Jubayer Ibn Hamid*, Kaylee Burns, Chelsea Finn, Jiajun Wu.</span>
+                <i>International Conference on Machine Learning (ICML), 2024.</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2312.12444">What Makes Pre-trained Visual Representations Successful For Robust Manipulation?</a></strong>
+                <span class="paper-authors-row">Kaylee Burns, Zach Witzel, Jubayer Ibn Hamid, Tianhe Yu, Chelsea Finn, Karol Hausman.</span>
+                <i>Conference on Robot Learning (CoRL), 2024.</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:4px; margin-bottom:8px;">(*) denotes co-first authorship</p>
+      </details>
       <details class="notes-disclosure">
         <summary class="notes-toggle">Notes</summary>
         <table class="notes-table">
