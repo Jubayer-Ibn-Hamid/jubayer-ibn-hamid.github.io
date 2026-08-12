@@ -80,30 +80,87 @@
       padding: 20px 0;
     }
 
+    .intro-section {
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
     .section + .section {
       border-top: 1px solid #eee;
     }
 
-    .section + .selected-papers-section {
-      border-top: 0;
-    }
-
-    .selected-works-label {
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-
-    .research-section {
-      padding-bottom: 8px;
-    }
-
     .selected-papers-section {
-      padding-top: 0;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+
+    .selected-papers-toggle,
+    .notes-toggle,
+    .teaching-toggle,
+    .all-papers-link {
+      font-size: 1.1em;
+      font-weight: 600;
+    }
+
+    .selected-papers-toggle,
+    .notes-toggle,
+    .teaching-toggle {
+      display: inline-block;
+      list-style: none;
+      color: #002626;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .selected-papers-toggle::-webkit-details-marker,
+    .notes-toggle::-webkit-details-marker,
+    .teaching-toggle::-webkit-details-marker {
+      display: none;
+    }
+
+    .selected-papers-toggle:hover,
+    .selected-papers-toggle:focus-visible,
+    .notes-toggle:hover,
+    .notes-toggle:focus-visible,
+    .teaching-toggle:hover,
+    .teaching-toggle:focus-visible {
+      text-decoration: underline;
+    }
+
+    .notes-disclosure {
+      margin-top: 10px;
+    }
+
+    .selected-papers-table,
+    .notes-table,
+    .teaching-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 2px;
+      table-layout: fixed;
+      background-color: #fff;
+      border: 1px solid #999;
+      margin-bottom: 8px;
+    }
+
+    .selected-papers-table td,
+    .notes-table td,
+    .teaching-table td {
+      border: 1px solid #999;
+      padding: 8px;
+      vertical-align: top;
+      line-height: 1.25;
+    }
+
+    .paper-title-row,
+    .paper-authors-row {
+      display: block;
+      margin-bottom: 1em;
     }
 
     /* Headings style */
     .section h2 {
-      font-size: 2em;
+      font-size: 1.5em;
       margin: 0 0 10px 0;
       font-weight: normal;
     }
@@ -112,15 +169,6 @@
     .section ul {
       margin: 0;
       padding-left: 20px;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      padding: 10px 0 20px 0;
-      color: #888;
-      font-size: 0.85em;
-      border-top: 1px solid #eee;
     }
 
     .hero-name {
@@ -159,6 +207,10 @@
     .hero-bio {
       text-align: left;
       margin-top: 20px;
+    }
+
+    .intro-section .hero-bio p {
+      color: #002626;
     }
 
     /* ── Dark mode link ── */
@@ -201,8 +253,7 @@
     body.dark-mode .papertitle,
     body.dark-mode .name,
     body.dark-mode strong,
-    body.dark-mode i,
-    body.dark-mode .footer {
+    body.dark-mode i {
       color: #fff !important;
     }
 
@@ -221,8 +272,23 @@
       border-top-color: #444;
     }
 
-    body.dark-mode .footer {
-      border-top-color: #444;
+    body.dark-mode .selected-papers-toggle,
+    body.dark-mode .notes-toggle,
+    body.dark-mode .teaching-toggle {
+      color: #fff;
+    }
+
+    body.dark-mode .selected-papers-table,
+    body.dark-mode .notes-table,
+    body.dark-mode .teaching-table {
+      background-color: #1b1b1b;
+    }
+
+    body.dark-mode .selected-papers-table td,
+    body.dark-mode .notes-table td,
+    body.dark-mode .teaching-table td {
+      color: #fff;
+      border-color: #555;
     }
   </style>
 </head>
@@ -253,10 +319,13 @@
   </div>
 
   <div class="container">
-    <div class="section" style="padding-top: 20px;">
+    <div class="section intro-section">
       <div class="hero-bio">
         <p>
-          I work in artificial intelligence and reinforcement learning. I am currently a 1st year PhD student at Stanford University and a Student Researcher at Google. I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL), where my research is advised by Dorsa Sadigh and Chelsea Finn.
+          I work in artificial intelligence and reinforcement learning.
+        </p>
+        <p>
+          I am currently a PhD student at Stanford University and a Student Researcher at Google. I am affiliated with Stanford Artificial Intelligence Laboratory (SAIL), where my research is advised by Dorsa Sadigh and Chelsea Finn.
         </p>
         <p>
           Previously, I studied mathematical physics as an undergraduate at Stanford University. Outside of AI, I am interested in pure mathematics, especially abstract algebra and neighbouring fields.
@@ -264,107 +333,94 @@
       </div>
     </div>
 
-    <div class="section research-section">
-      <h2>Research</h2>
-      <p> I work on reinforcement learning and sequential decision-making with the goal of developing learning and inference algorithms aiming towards solving extremely complex problems, especially in scientific discovery. These days, I am interested in exploration-exploitation strategies, and training-time and inference-time search.</p>
-      <div style="clear:both;"></div>
-    </div>
-
     <div class="section selected-papers-section">
-      <p class="selected-works-label">Selected Papers:</p>
-      <ul>
-        <li>
-          <p>
-            <papertitle><a href="https://arxiv.org/abs/2606.23595">SPIRAL: Learning to Search and Aggregate.</a></papertitle>
-            Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Michael Y. Li, Omar Shaikh, Yoonho Lee, Dorsa Sadigh, Chelsea Finn, Noah Goodman. <i>Preprint (ongoing work).</i>
-          </p>
-        </li>
-        <li>
-          <p>
-            <papertitle><a href="https://arxiv.org/abs/2604.17654">Poly-EPO: Training Exploratory Reasoning Models.</a></papertitle>
-            Ifdita Hasan Orney*, Jubayer Ibn Hamid*, Shreya Ramanujam, Shirley Wu, Hengyuan Hu, Noah Goodman, Dorsa Sadigh, Chelsea Finn. <i>Preprint (under submission).</i>
-          </p>
-        </li>
-        <li>
-          <p>
-            <papertitle><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></papertitle>
-            Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh. International Conference on Learning Representations (ICLR), 2026.
-          </p>
-        </li>
-      </ul>
-      <p style="margin-top:4px; margin-bottom:8px;">(* denotes co-lead)</p>
-      <p style="margin-bottom:15px;">
-        Full list of publications can be found here:
-        <a href="publications.html" style="color:#045a8d;">All Papers</a>.
+      <details class="selected-papers-disclosure">
+        <summary class="selected-papers-toggle">Selected Papers</summary>
+        <table class="selected-papers-table">
+          <tbody>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2606.23595">SPIRAL: Learning to Search and Aggregate.</a></strong>
+                <span class="paper-authors-row">Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Michael Y. Li, Omar Shaikh, Yoonho Lee, Dorsa Sadigh, Chelsea Finn, Noah Goodman.</span>
+                <i>Preprint (ongoing work).</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2604.17654">Poly-EPO: Training Exploratory Reasoning Models.</a></strong>
+                <span class="paper-authors-row">Ifdita Hasan Orney*, Jubayer Ibn Hamid*, Shreya Ramanujam, Shirley Wu, Hengyuan Hu, Noah Goodman, Dorsa Sadigh, Chelsea Finn.</span>
+                <i>Preprint (under submission).</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong class="paper-title-row"><a href="https://arxiv.org/abs/2509.25424">Polychromic Objectives for Reinforcement Learning.</a></strong>
+                <span class="paper-authors-row">Jubayer Ibn Hamid*, Ifdita Hasan Orney*, Ellen Xu, Chelsea Finn, Dorsa Sadigh.</span>
+                International Conference on Learning Representations (ICLR), 2026.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:4px; margin-bottom:8px;">(* denotes co-lead)</p>
+      </details>
+      <p style="margin: 0;">
+        <a href="publications.html" class="all-papers-link">All Papers</a>
       </p>
+      <details class="notes-disclosure">
+        <summary class="notes-toggle">Notes</summary>
+        <table class="notes-table">
+          <tbody>
+            <tr>
+              <td><strong><a href="data/set_rl_fundamentals.pdf">Set Reinforcement Learning: Principles and Approaches.</a></strong></td>
+            </tr>
+            <tr>
+              <td>
+                <strong><a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a></strong><br />
+                <i>In progress.</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong><a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Rings, Modules and Categories.</a></strong><br />
+                <i>In progress.</i>
+              </td>
+            </tr>
+            <tr>
+              <td><strong><a href="data/Abstract_Algebra_Notes.pdf">Group Theory.</a></strong></td>
+            </tr>
+            <tr>
+              <td><strong><a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a></strong></td>
+            </tr>
+            <tr>
+              <td><strong><a href="data/RL_Notes__final_.pdf">Deep Reinforcement Learning.</a></strong></td>
+            </tr>
+            <tr>
+              <td><strong><a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a></strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+      <details class="teaching-disclosure">
+        <summary class="teaching-toggle">Teaching</summary>
+        <table class="teaching-table">
+          <tbody>
+            <tr>
+              <td>
+                <strong><a href="https://cs224r.stanford.edu" target="_blank" rel="noopener noreferrer">CS 224R - Deep Reinforcement Learning.</a></strong><br />
+                <i>Head CA. Spring, 2025.</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong><a href="https://cs229.stanford.edu" target="_blank" rel="noopener noreferrer">CS 229 - Machine Learning.</a></strong><br />
+                <i>CA. Winter, 2025.</i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
     </div>
 
-    <div class="section">
-      <h2>Notes</h2>
-      <ul>
-        <li>
-          <p>
-            <papertitle><a href="data/set_rl_fundamentals.pdf">Set Reinforcement Learning: Principles and Approaches.</a></papertitle>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Algebraic_Geometry_Notes.pdf">Category Theory and Algebraic Geometry.</a>
-            (in progress)
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="https://github.com/Jubayer-Ibn-Hamid/jubayer-ibn-hamid.github.io/releases/download/Algebra/Modern_Algebra.pdf">Rings, Modules and Categories.</a>
-            (in progress)
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Abstract_Algebra_Notes.pdf">Group Theory.</a>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Whitney_s_Theorems.pdf">Whitney's Embedding Theorem and Immersion Theorem.</a>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/RL_Notes__final_.pdf">Deep Reinforcement Learning.</a>
-          </p>
-        </li>
-        <li>
-          <p>
-            <a href="data/Trust_Region_Methods.pdf">Trust Region Optimization Methods.</a>
-          </p>
-        </li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Teaching</h2>
-      <p>
-        <a href="https://cs224r.stanford.edu" target="_blank" rel="noopener noreferrer">
-          CS 224R - Deep Reinforcement Learning.
-        </a>
-        <i>Head CA. Spring, 2025.</i>
-      </p>
-      <p>
-        <a href="https://cs229.stanford.edu" target="_blank" rel="noopener noreferrer">
-          CS 229 - Machine Learning.
-        </a>
-        <i>CA. Winter, 2025.</i>
-      </p>
-    </div>
-
-    <div class="section" style="text-align:center;">
-      <img src="./images/fractal_tree.png" alt="Fractal Tree" style="width:180px; display:inline-block;" />
-    </div>
-
-    <div class="footer">
-      &copy; 2026 Jubayer Ibn Hamid
-    </div>
   </div>
   <script>
     // Randomly pick hero background image on each page load
