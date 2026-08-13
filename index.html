@@ -159,6 +159,33 @@
       line-height: 1.25;
     }
 
+    .selected-papers-table a:hover,
+    .selected-papers-table a:focus,
+    .all-papers-table a:hover,
+    .all-papers-table a:focus,
+    .notes-table a:hover,
+    .notes-table a:focus,
+    .teaching-table a:hover,
+    .teaching-table a:focus {
+      text-decoration: none;
+    }
+
+    .selected-papers-table a:focus-visible,
+    .all-papers-table a:focus-visible,
+    .notes-table a:focus-visible,
+    .teaching-table a:focus-visible {
+      text-decoration: underline;
+    }
+
+    @media (hover: hover) {
+      .selected-papers-table a:hover,
+      .all-papers-table a:hover,
+      .notes-table a:hover,
+      .teaching-table a:hover {
+        text-decoration: underline;
+      }
+    }
+
     .paper-title-row,
     .paper-authors-row {
       display: block;
