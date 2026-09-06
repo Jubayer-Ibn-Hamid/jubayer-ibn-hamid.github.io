@@ -282,7 +282,7 @@
 
     /* ── Dark mode styles ── */
     body.dark-mode {
-      background-color: #111111 !important;
+      background-color: var(--dark-background, #03080D) !important;
     }
 
     body.dark-mode .section,
@@ -327,7 +327,7 @@
     body.dark-mode .all-papers-table,
     body.dark-mode .notes-table,
     body.dark-mode .teaching-table {
-      background-color: #1b1b1b;
+      background-color: var(--dark-background, #03080D);
     }
 
     body.dark-mode .selected-papers-table td,
@@ -532,6 +532,7 @@
   <script>
     // Choose either hero background image with equal probability on each page load
     const useBlueHero = Math.random() < 0.5;
+    document.body.style.setProperty('--dark-background', useBlueHero ? '#03080D' : '#030707');
     const heroBg = useBlueHero ? './images/blue.png' : './images/teal.png';
     const heroContainer = document.querySelector('.hero-banner .container');
     heroContainer.style.backgroundImage = `url('${heroBg}')`;
