@@ -340,10 +340,10 @@
   </style>
 </head>
 
-<body>
+<body class="dark-mode">
   <div class="hero-banner">
     <div class="container">
-      <a id="darkToggle" href="#">dark</a>
+      <a id="darkToggle" href="#">light</a>
       <div class="hero-centered">
         <div class="hero-text">
           <p class="hero-name">
@@ -543,9 +543,9 @@
   <script>
     const toggle = document.getElementById('darkToggle');
     const saved = localStorage.getItem('darkMode');
-    if (saved === 'true') {
-      document.body.classList.add('dark-mode');
-      toggle.textContent = 'light';
+    if (saved === 'false') {
+      document.body.classList.remove('dark-mode');
+      toggle.textContent = 'dark';
     }
     toggle.addEventListener('click', (e) => {
       e.preventDefault();
