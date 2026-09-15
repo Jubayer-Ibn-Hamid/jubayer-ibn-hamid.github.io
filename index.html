@@ -87,7 +87,8 @@
     .selected-papers-toggle,
     .all-papers-toggle,
     .notes-toggle,
-    .teaching-toggle {
+    .teaching-toggle,
+    .blog-toggle {
       font-size: 1.1em;
       font-weight: 600;
     }
@@ -95,7 +96,8 @@
     .selected-papers-toggle,
     .all-papers-toggle,
     .notes-toggle,
-    .teaching-toggle {
+    .teaching-toggle,
+    .blog-toggle {
       display: inline-block;
       list-style: none;
       color: #002626;
@@ -106,14 +108,16 @@
     .selected-papers-toggle::-webkit-details-marker,
     .all-papers-toggle::-webkit-details-marker,
     .notes-toggle::-webkit-details-marker,
-    .teaching-toggle::-webkit-details-marker {
+    .teaching-toggle::-webkit-details-marker,
+    .blog-toggle::-webkit-details-marker {
       display: none;
     }
 
     .selected-papers-toggle::before,
     .all-papers-toggle::before,
     .notes-toggle::before,
-    .teaching-toggle::before {
+    .teaching-toggle::before,
+    .blog-toggle::before {
       content: "\2744\FE0E";
       display: inline-block;
       width: 1.25em;
@@ -123,7 +127,8 @@
     .selected-papers-toggle:focus-visible,
     .all-papers-toggle:focus-visible,
     .notes-toggle:focus-visible,
-    .teaching-toggle:focus-visible {
+    .teaching-toggle:focus-visible,
+    .blog-toggle:focus-visible {
       text-decoration: underline;
     }
 
@@ -131,7 +136,8 @@
       .selected-papers-toggle:hover,
       .all-papers-toggle:hover,
       .notes-toggle:hover,
-      .teaching-toggle:hover {
+      .teaching-toggle:hover,
+      .blog-toggle:hover {
         text-decoration: underline;
       }
     }
@@ -139,7 +145,8 @@
     .selected-papers-table,
     .all-papers-table,
     .notes-table,
-    .teaching-table {
+    .teaching-table,
+    .blog-table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 2px;
@@ -153,14 +160,16 @@
     .selected-papers-disclosure[open],
     .all-papers-disclosure[open],
     .notes-disclosure[open],
-    .teaching-disclosure[open] {
+    .teaching-disclosure[open],
+    .blog-disclosure[open] {
       margin-bottom: 30px;
     }
 
     .selected-papers-table td,
     .all-papers-table td,
     .notes-table td,
-    .teaching-table td {
+    .teaching-table td,
+    .blog-table td {
       border: 1px solid #999;
       padding: 8px;
       vertical-align: top;
@@ -174,14 +183,17 @@
     .notes-table a:hover,
     .notes-table a:focus,
     .teaching-table a:hover,
-    .teaching-table a:focus {
+    .teaching-table a:focus,
+    .blog-table a:hover,
+    .blog-table a:focus {
       text-decoration: none;
     }
 
     .selected-papers-table a:focus-visible,
     .all-papers-table a:focus-visible,
     .notes-table a:focus-visible,
-    .teaching-table a:focus-visible {
+    .teaching-table a:focus-visible,
+    .blog-table a:focus-visible {
       text-decoration: underline;
     }
 
@@ -189,7 +201,8 @@
       .selected-papers-table a:hover,
       .all-papers-table a:hover,
       .notes-table a:hover,
-      .teaching-table a:hover {
+      .teaching-table a:hover,
+      .blog-table a:hover {
         text-decoration: underline;
       }
     }
@@ -333,21 +346,24 @@
     body.dark-mode .selected-papers-toggle,
     body.dark-mode .all-papers-toggle,
     body.dark-mode .notes-toggle,
-    body.dark-mode .teaching-toggle {
+    body.dark-mode .teaching-toggle,
+    body.dark-mode .blog-toggle {
       color: #fff;
     }
 
     body.dark-mode .selected-papers-table,
     body.dark-mode .all-papers-table,
     body.dark-mode .notes-table,
-    body.dark-mode .teaching-table {
+    body.dark-mode .teaching-table,
+    body.dark-mode .blog-table {
       background-color: var(--dark-background, #03080D);
     }
 
     body.dark-mode .selected-papers-table td,
     body.dark-mode .all-papers-table td,
     body.dark-mode .notes-table td,
-    body.dark-mode .teaching-table td {
+    body.dark-mode .teaching-table td,
+    body.dark-mode .blog-table td {
       color: #fff;
       border-color: #555;
     }
@@ -524,6 +540,16 @@
                 <strong><a href="https://cs229.stanford.edu" target="_blank" rel="noopener noreferrer">CS 229 - Machine Learning.</a></strong><br />
                 <i>CA. Winter, 2025.</i>
               </td>
+            </tr>
+          </tbody>
+        </table>
+      </details>
+      <details class="blog-disclosure">
+        <summary class="blog-toggle">Blog</summary>
+        <table class="blog-table">
+          <tbody>
+            <tr>
+              <td><strong><a href="science_and_ai.html">Science and AI.</a></strong></td>
             </tr>
           </tbody>
         </table>

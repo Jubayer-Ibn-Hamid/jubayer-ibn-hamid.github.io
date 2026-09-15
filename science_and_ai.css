@@ -1,0 +1,159 @@
+@font-face {
+  font-family: "Libertinus Serif";
+  src: url("fonts/libertinus/LibertinusSerif-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libertinus Serif";
+  src: url("fonts/libertinus/LibertinusSerif-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libertinus Math";
+  src: url("fonts/libertinus/LibertinusMath-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Libertinus Mono";
+  src: url("fonts/libertinus/LibertinusMono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Computer Modern Serif";
+  src: url("fonts/computer-modern/cmunrm.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  background: #fff;
+  color: #000;
+  font-family: "Libertinus Serif", serif;
+  font-size: 16px;
+  font-synthesis: none;
+  line-height: 1.55;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+.paper {
+  max-width: 930px;
+  margin: 0 auto;
+  padding: 36px 40px 100px;
+}
+
+a {
+  color: #045a8d;
+  text-decoration: none;
+  text-underline-offset: 0.15em;
+}
+
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid #045a8d; outline-offset: 4px; }
+[id] { scroll-margin-top: 24px; }
+
+.home-link { font-size: 0.8rem; }
+
+.paper-header {
+  text-align: center;
+  margin: 64px 0 64px;
+}
+
+h1 {
+  font-size: 1.44rem;
+  font-weight: 400;
+  line-height: 1.25;
+  text-transform: uppercase;
+  margin: 0 0 2em;
+}
+
+.paper-header p { text-indent: 0; }
+.author { margin: 0 0 1.5em; }
+.affiliation { font-size: 0.9rem; line-height: 1.5; margin: 0; }
+.email { font-family: "Libertinus Mono", monospace; font-size: 0.9em; }
+
+.galaxy-figure {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.galaxy-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.galaxy-figure figcaption {
+  margin-top: 8px;
+  font-style: italic;
+  color: #555;
+  font-size: 0.9em;
+}
+
+h2 {
+  font-family: "Computer Modern Serif", "Libertinus Serif", serif;
+  font-size: 1rem;
+  font-variant-caps: small-caps;
+  font-synthesis: small-caps;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.4;
+  margin: 2.4em 0 1.3em;
+}
+
+h2 span { margin-left: 0.7em; }
+
+p {
+  margin: 0 0 1.15em;
+  text-indent: 1.5em;
+}
+
+blockquote { margin: 1.7em 2em; }
+blockquote p { font-style: italic; text-indent: 0; margin-bottom: 0.3em; }
+blockquote footer { font-size: 0.95em; }
+.opening-quote { margin-bottom: 2em; }
+
+math { font-family: "Libertinus Math", math; font-size: 1em; }
+.citation { white-space: nowrap; }
+.references { margin-top: 3em; font-size: 0.9rem; }
+.reference { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 0.8em; }
+.reference p { text-indent: 0; overflow-wrap: anywhere; }
+
+@media (max-width: 600px) {
+  :root { font-size: 12px; }
+  .paper { padding: 24px 22px 60px; }
+  .paper-header { margin: 48px 0; }
+  blockquote { margin-left: 1em; margin-right: 1em; }
+}
+
+@media print {
+  @page { size: A4; margin: 3cm; }
+  :root { font-size: 10pt; line-height: 1.3; }
+  .paper { max-width: none; padding: 0; }
+  .home-link { display: none; }
+  .paper-header { margin-top: 1cm; }
+  h2 { break-after: avoid; }
+  blockquote, .reference { break-inside: avoid; }
+  p { orphans: 3; widows: 3; }
+}
