@@ -3,22 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="light" />
+  <meta name="color-scheme" content="dark light" />
   <meta name="author" content="Jubayer Ibn Hamid" />
   <meta name="description" content="Reflections on the purpose of science, mathematical understanding, and the role of human curiosity in an age of artificial intelligence." />
   <title>Science and AI — Jubayer Ibn Hamid</title>
   <link rel="icon" href="images/cayleygraph.png" />
   <link rel="preload" href="fonts/libertinus/LibertinusSerif-Regular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="science_and_ai.css" />
+  <script>
+    try {
+      document.documentElement.dataset.theme = localStorage.getItem('darkMode') === 'false' ? 'light' : 'dark';
+    } catch {
+      document.documentElement.dataset.theme = 'dark';
+    }
+  </script>
 </head>
 <body>
   <main class="paper">
-    <nav class="home-link" aria-label="Site navigation"><a href="index.html">← Home</a></nav>
+    <nav class="home-link" aria-label="Site navigation">
+      <a href="index.html">← Home</a>
+      <button id="darkToggle" type="button" aria-label="Switch to light mode">light</button>
+    </nav>
     <article aria-labelledby="article-title">
       <header class="paper-header">
         <h1 id="article-title">Science and AI</h1>
         <p class="author">Jubayer Ibn Hamid</p>
-        <p class="affiliation">Stanford University<br />Correspondence to: <a class="email" href="mailto:jubayer@stanford.edu">jubayer@stanford.edu</a></p>
+        <p class="affiliation">Correspondence to: <a class="email" href="mailto:jubayer@stanford.edu">jubayer@stanford.edu</a></p>
       </header>
 
       <figure class="galaxy-figure">
@@ -102,5 +112,25 @@
       </section>
     </article>
   </main>
+  <script>
+    const toggle = document.getElementById('darkToggle');
+    const root = document.documentElement;
+    function updateThemeToggle() {
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      toggle.textContent = next;
+      toggle.setAttribute('aria-label', `Switch to ${next} mode`);
+    }
+    updateThemeToggle();
+    toggle.addEventListener('click', () => {
+      const dark = root.dataset.theme === 'light';
+      root.dataset.theme = dark ? 'dark' : 'light';
+      updateThemeToggle();
+      try {
+        localStorage.setItem('darkMode', String(dark));
+      } catch {
+        // The toggle still works when browser storage is unavailable.
+      }
+    });
+  </script>
 </body>
 </html>
