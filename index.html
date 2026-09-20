@@ -10,6 +10,11 @@
   <link rel="icon" href="./images/cayleygraph.png" />
 
   <style>
+    :root {
+      --intro-link-font-size: clamp(0.7rem, 2.5vw, 0.875rem);
+      --square-marker-size: calc(0.45 * var(--intro-link-font-size));
+    }
+
     /* Layout container for perfect left alignment across all sections */
     .container {
       max-width: 800px;
@@ -118,10 +123,15 @@
     .notes-toggle::before,
     .teaching-toggle::before,
     .blog-toggle::before {
-      content: "\2744\FE0E";
+      content: "";
       display: inline-block;
-      width: 1.25em;
-      font-weight: normal;
+      box-sizing: border-box;
+      width: var(--square-marker-size);
+      height: var(--square-marker-size);
+      border: 1px solid currentColor;
+      vertical-align: 0.1em;
+      margin-right: 0.8em;
+      opacity: 0.45;
     }
 
     .selected-papers-toggle:focus-visible,
@@ -261,14 +271,14 @@
       margin: 50px 0 0;
       text-align: center;
       white-space: nowrap;
-      font-size: clamp(0.7rem, 2.5vw, 0.875rem);
+      font-size: var(--intro-link-font-size);
     }
 
     .intro-links .link-separator {
       display: inline-block;
       box-sizing: border-box;
-      width: 0.45em;
-      height: 0.45em;
+      width: var(--square-marker-size);
+      height: var(--square-marker-size);
       border: 1px solid currentColor;
       vertical-align: 0.1em;
       margin: 0 0.65em;
