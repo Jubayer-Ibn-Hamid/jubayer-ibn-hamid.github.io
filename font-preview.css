@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* Temporary font preview. The hero name keeps its existing Futura rule. */
+body,
+td,
+th,
+tr,
+p,
+a,
+strong,
+h2,
+.papertitle,
+.name,
+.email,
+#darkToggle {
+  font-family: "Source Sans 3", sans-serif;
+}
+
+a {
+  font-weight: 400;
+}

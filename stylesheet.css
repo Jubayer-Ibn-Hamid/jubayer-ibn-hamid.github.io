@@ -26,7 +26,7 @@
    tr,
    p,
    a {
-     font-size: 15px;
+     font-size: 14px;
      color: #555; /* ensure links not in .gradient styles stay gray */
    }
    
@@ -75,7 +75,7 @@
    
    a {
      display: inline-block;
-     font-weight: 600;
+     font-weight: 400;
      color: #002626 !important; 
      background: none !important;
      -webkit-background-clip: unset !important;

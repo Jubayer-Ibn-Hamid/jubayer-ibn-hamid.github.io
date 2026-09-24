@@ -47,7 +47,7 @@
   background: var(--page-background);
   color: var(--text-color);
   font-family: "Libertinus Serif", serif;
-  font-size: 16px;
+  font-size: 15px;
   font-synthesis: none;
   line-height: 1.55;
 }
@@ -174,7 +174,7 @@ math { font-family: "Libertinus Math", math; font-size: 1em; }
 .reference p { text-indent: 0; overflow-wrap: anywhere; }
 
 @media (max-width: 600px) {
-  :root { font-size: 12px; }
+  :root { font-size: 11.25px; }
   .paper { padding: 24px 22px 60px; }
   .paper-header { margin: 48px 0; }
   blockquote { margin-left: 1em; margin-right: 1em; }
