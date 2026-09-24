@@ -112,10 +112,12 @@
     .notes-toggle,
     .teaching-toggle,
     .blog-toggle {
-      display: inline-block;
+      display: block;
+      width: fit-content;
       list-style: none;
       color: #002626;
-      margin-bottom: 10px;
+      line-height: 1.4;
+      margin-bottom: 2px;
       cursor: pointer;
     }
 
@@ -274,7 +276,7 @@
     }
 
     .intro-links {
-      margin: 48px 0 0;
+      margin: 32px 0 0;
       color: #002626;
       text-align: left;
       white-space: nowrap;
@@ -292,6 +294,16 @@
     .hero-bio {
       text-align: left;
       margin-top: 20px;
+    }
+
+    .site-footer {
+      padding-bottom: 24px;
+      text-align: center;
+    }
+
+    .site-footer p {
+      margin: 0;
+      font-size: 12px;
     }
 
     .intro-section .hero-bio p {
@@ -567,7 +579,9 @@
         <a href="mailto:jubayer@stanford.edu">Email</a>
       </p>
     </div>
-
+    <footer class="site-footer">
+      <p>&copy; 2026 Jubayer Ibn Hamid</p>
+    </footer>
   </div>
   <script>
     // Choose either hero background image with equal probability on each page load
