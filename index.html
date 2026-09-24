@@ -385,10 +385,10 @@
   <link rel="stylesheet" href="font-preview.css" />
 </head>
 
-<body class="dark-mode">
+<body>
   <div class="hero-banner">
     <div class="container">
-      <a id="darkToggle" href="#">light</a>
+      <a id="darkToggle" href="#">dark</a>
       <div class="hero-centered">
         <div class="hero-text">
           <p class="hero-name">
@@ -583,9 +583,9 @@
   <script>
     const toggle = document.getElementById('darkToggle');
     const saved = localStorage.getItem('darkMode');
-    if (saved === 'false') {
-      document.body.classList.remove('dark-mode');
-      toggle.textContent = 'dark';
+    if (saved === 'true') {
+      document.body.classList.add('dark-mode');
+      toggle.textContent = 'light';
     }
     toggle.addEventListener('click', (e) => {
       e.preventDefault();

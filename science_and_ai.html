@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="science_and_ai.css?v=f8db58988744" />
   <script>
     try {
-      document.documentElement.dataset.theme = localStorage.getItem('darkMode') === 'false' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = localStorage.getItem('darkMode') === 'true' ? 'dark' : 'light';
     } catch {
-      document.documentElement.dataset.theme = 'dark';
+      document.documentElement.dataset.theme = 'light';
     }
   </script>
 </head>
@@ -22,7 +22,7 @@
   <main class="paper">
     <nav class="home-link" aria-label="Site navigation">
       <a href="index.html">← Home</a>
-      <button id="darkToggle" type="button" aria-label="Switch to light mode">light</button>
+      <button id="darkToggle" type="button" aria-label="Switch to dark mode">dark</button>
     </nav>
     <article aria-labelledby="article-title">
       <header class="paper-header">
