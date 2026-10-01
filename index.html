@@ -140,6 +140,26 @@
       line-height: 1;
       vertical-align: 0.1em;
       margin-right: 0.8rem;
+      transform: rotate(0deg);
+      transition: transform 300ms ease-in-out;
+    }
+
+    details[open] > .selected-papers-toggle::before,
+    details[open] > .all-papers-toggle::before,
+    details[open] > .notes-toggle::before,
+    details[open] > .teaching-toggle::before,
+    details[open] > .blog-toggle::before {
+      transform: rotate(45deg);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .selected-papers-toggle::before,
+      .all-papers-toggle::before,
+      .notes-toggle::before,
+      .teaching-toggle::before,
+      .blog-toggle::before {
+        transition: none;
+      }
     }
 
     .selected-papers-toggle:focus-visible,
